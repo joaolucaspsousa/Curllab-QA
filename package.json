@@ -1,0 +1,31 @@
+{
+  "name": "curllab-qa",
+  "version": "1.0.0",
+  "description": "Automation of end-to-end tests of Curllab project with Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaolucaspsousa/Curllab-QA.git"
+  },
+  "keywords": [
+    "Cypress",
+    "automation",
+    "QA",
+    "e2e",
+    "end-to-end"
+  ],
+  "author": "João Lucas Pereira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaolucaspsousa/Curllab-QA/issues"
+  },
+  "homepage": "https://github.com/joaolucaspsousa/Curllab-QA#readme",
+  "devDependencies": {
+    "cypress": "^12.12.0",
+    "@faker-js/faker": "^8.0.0",
+    "cypress-plugin-api": "^2.11.0"
+  }
+}
