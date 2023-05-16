@@ -3,6 +3,8 @@ import { MyAccount } from "../../pageObjects/my_account";
 import { LCT_MyAccount } from "../../locators/pages/lct_my_account";
 
 describe("ST02: Tests of the My Information section of the logged-in area / Analyze all scenarios and flows in this section", () => {
+  const MyAccountPage = new MyAccount();
+  
   beforeEach(() => {
     cy.login();
     cy.visit(Routes.myAccount);
@@ -21,7 +23,7 @@ describe("ST02: Tests of the My Information section of the logged-in area / Anal
         email: Cypress.env("username"),
       };
 
-      MyAccount.GUI.editUserDetails(userDto);
+      MyAccountPage.editUserDetails(userDto);
       cy.get(LCT_MyAccount.saveButton).click();
 
       cy.get(".profile__left__shipping").contains(
@@ -41,12 +43,12 @@ describe("ST02: Tests of the My Information section of the logged-in area / Anal
         email: "",
       };
 
-      MyAccount.GUI.editUserDetails(userDto);
+      MyAccountPage.editUserDetails(userDto);
       cy.get(LCT_MyAccount.saveButton).click();
 
-      cy.get(".profile__left__shipping").contains("First Name is required");
-      cy.get(".profile__left__shipping").contains("Last Name is required");
-      cy.get(".profile__left__shipping").contains("Email is required");
+      cy.get(".profile__left__shipping").contains(" First name is required");
+      cy.get(".profile__left__shipping").contains(" Last name is required");
+      cy.get(".profile__left__shipping").contains(" Email is required");
 
       cy.get(LCT_MyAccount.saveButton).should("be.disabled");
 
@@ -60,7 +62,7 @@ describe("ST02: Tests of the My Information section of the logged-in area / Anal
         email: "T@G.C",
       };
 
-      MyAccount.GUI.editUserDetails(userDto);
+      MyAccountPage.editUserDetails(userDto);
       cy.get(LCT_MyAccount.saveButton).click();
 
       cy.get(".profile__left__shipping").contains(

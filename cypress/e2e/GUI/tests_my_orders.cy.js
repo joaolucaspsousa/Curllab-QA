@@ -3,6 +3,8 @@ import { MyOrders } from "../../pageObjects/my_orders";
 import { LCT_MyOrders } from "../../locators/pages/lct_my_orders";
 
 describe("ST02: Tests of the My Favorites section of the logged-in area / Analyze all scenarios and flows in this section", () => {
+  const MyOrdersPage = new MyOrders();
+
   beforeEach(() => {
     cy.login();
     cy.visit(Routes.myOrders);
@@ -14,8 +16,8 @@ describe("ST02: Tests of the My Favorites section of the logged-in area / Analyz
     cy.log("SVTS: My Orders Page visited successfully");
   });
 
-  it("CT02: View a order to user", async () => {
-    await MyOrders.GUI.viewOrder(1);
+  it("CT02: View a order to user", () => {
+    MyOrdersPage.viewOrder(1);
 
     cy.url().should("include", "https://store.curllab.com/");
 
