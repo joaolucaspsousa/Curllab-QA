@@ -17,6 +17,8 @@
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-import 'cypress-plugin-api'
+import "cypress-plugin-api";
 
-import './commands'
+import "cypress-localstorage-commands";
+
+import "./commands.js";
