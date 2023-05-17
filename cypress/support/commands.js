@@ -38,3 +38,30 @@ Cypress.Commands.add(
 );
 
 Cypress.Commands.add("logout", () => {});
+
+Cypress.Commands.add("expected", (element, assert, expected, boolean) => {
+  cy.get(element, { timeout: 5000 }).then(($element) => {
+    switch (assert) {
+      case "contain":
+        expect($element).to.contain(expected);
+        return;
+
+      case "equal":
+        expect($element).to.equal(expected);
+        return;
+
+      case "have.lengthOf":
+        expect($element).to.have.value(expected);
+        return;
+
+      case "have.property":
+        expect($element).to.have.property(expected, boolean);
+
+      case "not.have.property":
+        expect($element).to.not.have.property(expected, boolean);
+
+      default:
+        break;
+    }
+  });
+});

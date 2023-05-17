@@ -1,4 +1,4 @@
-let LCT_MyFavorites = {
+let Locators_MyFavorites = {
   // My Favorites Page
   favoritesTitle: ".profile__right__side > h3",
   favoritesList: ".scroller",
@@ -10,4 +10,4 @@ let LCT_MyFavorites = {
   logoutButton: ".button-area > .default-button",
 };
 
-export default { LCT_MyFavorites };
+export default { Locators_MyFavorites };

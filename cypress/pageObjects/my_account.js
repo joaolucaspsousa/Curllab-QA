@@ -1,11 +1,10 @@
-import { LCT_MyAccount } from "../locators/pages/lct_my_account";
-import { faker } from "@faker-js/faker";
+import { Locators_MyAccount } from "../locators/pages/lct_my_account";
 
-class MyAccount {
+class PO_MyAccount {
   constructor() {
-    this.firstNameInput = LCT_MyAccount.firstNameInput;
-    this.lastNameInput = LCT_MyAccount.lastNameInput;
-    this.emailInput = LCT_MyAccount.emailInput;
+    this.firstNameInput = Locators_MyAccount.firstNameInput;
+    this.lastNameInput = Locators_MyAccount.lastNameInput;
+    this.emailInput = Locators_MyAccount.emailInput;
   }
 
   fillFirstName(firstName) {
@@ -36,11 +35,11 @@ class MyAccount {
   }
 
   editUserDetails(userDto) {
-    cy.get(LCT_MyAccount.editDetailsButton).click();
+    cy.get(Locators_MyAccount.editDetailsButton).click();
     this.fillFirstName(userDto.firstName);
     this.fillLastName(userDto.lastName);
     this.fillEmail(userDto.email);
   }
 }
 
-export default { MyAccount };
+export default { PO_MyAccount };

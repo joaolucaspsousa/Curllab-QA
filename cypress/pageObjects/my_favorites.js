@@ -1,13 +1,13 @@
-import { LCT_MyFavorites } from "../locators/pages/lct_my_favorites";
+import { Locators_MyFavorites } from "../locators/pages/lct_my_favorites";
 
-class MyFavorites {
+class PO_MyFavorites {
   constructor() {
-    this.favoritesList = LCT_MyFavorites.favoritesList;
+    this.favoritesList = Locators_MyFavorites.favoritesList;
   }
 
   async getNameProductFavorites(product) {
     return new Promise((resolve, reject) => {
-      cy.get(LCT_MyFavorites.favoritesListItem(product)).then(($product) => {
+      cy.get(Locators_MyFavorites.favoritesListItem(product)).then(($product) => {
         resolve($product.text());
       });
     });
@@ -22,7 +22,7 @@ class MyFavorites {
     const length = this.getLengthOfFavoritesList();
 
     if (length > 0) {
-      cy.get(LCT_MyFavorites.favoritesListItem(product)).click();
+      cy.get(Locators_MyFavorites.favoritesListItem(product)).click();
     }
   }
 
@@ -30,9 +30,9 @@ class MyFavorites {
     const length = this.getLengthOfFavoritesList();
 
     if (length > 0) {
-      cy.get(LCT_MyFavorites.removeListItem(product)).click();
+      cy.get(Locators_MyFavorites.removeListItem(product)).click();
     }
   }
 }
 
-export default { MyFavorites };
+export default { PO_MyFavorites };

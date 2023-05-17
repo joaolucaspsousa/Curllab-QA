@@ -1,8 +1,8 @@
-import { LCT_MyOrders } from "../locators/pages/lct_my_orders";
+import { Locators_MyOrders } from "../locators/pages/lct_my_orders";
 
-class MyOrders {
+class PO_MyOrders {
   constructor() {
-    this.ordersList = LCT_MyOrders.ordersList;
+    this.ordersList = Locators_MyOrders.ordersList;
   }
 
   getNameOrder(order) {
@@ -10,7 +10,7 @@ class MyOrders {
 
     if (length > 0) {
       return new Promise((resolve, reject) => {
-        cy.get(LCT_MyOrders.ordersListItem(order)).then(($order) => {
+        cy.get(Locators_MyOrders.ordersListItem(order)).then(($order) => {
           resolve($order.text());
         });
       });
@@ -25,11 +25,11 @@ class MyOrders {
   viewOrder(order) {
     const length = this.getLengthOfOrdersList();
     if (length > 0) {
-      cy.get(LCT_MyOrders.ordersListItem(order))
+      cy.get(Locators_MyOrders.ordersListItem(order))
         .invoke("removeAttr", "target")
         .click();
     }
   }
 }
 
-export default { MyOrders };
+export default { PO_MyOrders };

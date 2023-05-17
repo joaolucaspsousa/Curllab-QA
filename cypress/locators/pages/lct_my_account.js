@@ -1,4 +1,4 @@
-let LCT_MyAccount = {
+let Locators_MyAccount = {
   // My Account Page
   accountTitle: ".fieldset-header > h3",
   editDetailsButton: ".profile__left__shipping > .fieldset-header > span",
@@ -14,4 +14,4 @@ let LCT_MyAccount = {
   logoutButton: ".default-button",
 };
 
-export default { LCT_MyAccount };
+export default { Locators_MyAccount };

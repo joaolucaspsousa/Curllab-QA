@@ -1,4 +1,4 @@
-let LCT_MyOrders = {
+let Locators_MyOrders = {
   // My Orders Page
   ordersTitle: ".profile__right > h3",
 
@@ -12,4 +12,4 @@ let LCT_MyOrders = {
   logoutButton: ".button-area > .default-button",
 };
 
-export default { LCT_MyOrders };
+export default { Locators_MyOrders };
