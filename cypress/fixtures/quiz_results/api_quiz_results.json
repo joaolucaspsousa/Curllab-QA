@@ -1,0 +1,191 @@
+{
+    "baseName": [
+        {
+            "baseId": 3,
+            "name": "Total Repair"
+        },
+        {
+            "baseId": 4,
+            "name": "Total Protect"
+        },
+        {
+            "baseId": 1,
+            "name": "Hydro Power"
+        },
+        {
+            "baseId": 2,
+            "name": "Coil Power"
+        }
+    ],
+    "boosters": {
+        "oneGoalConcentration": "10ml",
+        "twoGoalsConcentration": "15ml",
+        "threeGoalsConcentration": "15ml",
+        "list": [
+            {
+                "goalSelected": 1,
+                "boosterId": 26,
+                "name": "Soybeans"
+            },
+            {
+                "goalSelected": 2,
+                "boosterId": 28,
+                "name": "Hyaluronic Acid"
+            },
+            {
+                "goalSelected": 3,
+                "boosterId": 7,
+                "name": "Rose Extract"
+            },
+            {
+                "goalSelected": 4,
+                "boosterId": 32,
+                "name": "Calendula Oil"
+            },
+            {
+                "goalSelected": 5,
+                "boosterId": 5,
+                "name": "Panthenol"
+            },
+            {
+                "goalSelected": 6,
+                "boosterId": 30,
+                "name": "Castor Oil"
+            },
+            {
+                "goalSelected": 7,
+                "boosterId": 18,
+                "name": "Avocado Oil"
+            },
+            {
+                "goalSelected": 8,
+                "boosterId": 20,
+                "name": "Red Algae Extract"
+            },
+            {
+                "goalSelected": 9,
+                "boosterId": 31,
+                "name": "Sugar Cane"
+            },
+            {
+                "goalSelected": 10,
+                "boosterId": 8,
+                "name": "Biotin"
+            },
+            {
+                "goalSelected": 11,
+                "boosterId": 27,
+                "name": "Rice Protein"
+            },
+            {
+                "goalSelected": 12,
+                "boosterId": 29,
+                "name": "Amino-Acids"
+            }
+        ]
+    },
+    "damageLevel": [
+        {
+            "damageId": 1,
+            "description": "Normal Level"
+        },
+        {
+            "damageId": 2,
+            "description": "Low Level"
+        },
+        {
+            "damageId": 3,
+            "description": "Medium Level"
+        },
+        {
+            "damageId": 4,
+            "description": "High Level"
+        }
+    ],
+    "hairCurrentState": [
+        {
+            "hairCurrentStateId": 0,
+            "description": "NATURAL"
+        },
+        {
+            "hairCurrentStateId": 1,
+            "description": "NOT_NATURAL"
+        }
+    ],
+    "products": {
+        "stylingRecommendations": [
+            {
+                "productId": 19,
+                "name": "Power Gel"
+            },
+            {
+                "productId": 14,
+                "name": "Scalp Spray"
+            },
+            {
+                "productId": 15,
+                "name": "Nourishing Vegetable Oil"
+            },
+            {
+                "productId": 17,
+                "name": "Styling Cream"
+            },
+            {
+                "productId": 13,
+                "name": "Refreshing Spray"
+            },
+            {
+                "productId": 18,
+                "name": "Vegetable Butter"
+            },
+            {
+                "productId": 20,
+                "name": "Gelatine"
+            },
+            {
+                "productId": 16,
+                "name": "Hair Mousse"
+            }
+        ],
+        "treatmentRecommendation": [
+            {
+                "productId": 39,
+                "baseId": 3,
+                "baseName": "Total Repair",
+                "hairCurrentState": "NATURAL",
+                "productName": "Reconstructive Mask"
+            },
+            {
+                "productId": 37,
+                "baseId": 4,
+                "baseName": "Total Protect",
+                "hairCurrentState": "NOT_NATURAL",
+                "productName": "Soothing and Strengthening Balm"
+            },
+            {
+                "productId": 39,
+                "baseId": 1,
+                "baseName": "Hydro Power",
+                "hairCurrentState": "NATURAL",
+                "productName": "Reconstructive Mask"
+            },
+            {
+                "productId": 39,
+                "baseId": 2,
+                "baseName": "Hydro Power",
+                "hairCurrentState": "NATURAL",
+                "productName": "Reconstructive Mask"
+            }
+        ],
+        "hygieneRecommendation": {
+            "shampoo": {
+                "productId": 40,
+                "name": "Shampoo"
+            },
+            "conditioner": {
+                "productId": 38,
+                "name": "Conditioner"
+            }
+        }
+    }
+}

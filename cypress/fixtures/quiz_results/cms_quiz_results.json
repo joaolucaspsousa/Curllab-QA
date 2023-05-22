@@ -1,0 +1,344 @@
+{
+    "firstSectionPresentation": {
+        "username": "username",
+        "resultBase": [
+            {
+                "id": 0,
+                "baseName": "Total Repair",
+                "title": "Let's start off creating your reviving system",
+                "description": "This reviving system will be crafted for your hair strengthening, moisturizing, and restoration from damage."
+            },
+            {
+                "id": 1,
+                "baseName": "Total Protect",
+                "title": "Let's start off creating your revitalizing system",
+                "description": "This revitalizing system will be crafted for strengthening your hair while stimulating growth, and scalp soothing. You will be able to rock your protective style and treat your new growth at the same time. "
+            },
+            {
+                "id": 2,
+                "baseName": "Hydro Power",
+                "title": "Let's start off creating your moisturizing system",
+                "description": "This moisturizing system will be crafted for you to promote hair hydration, strengthening, resistance to humidity, and curl definition."
+            },
+            {
+                "id": 3,
+                "baseName": "Coil Power",
+                "title": "Let's start off creating your nourishing system",
+                "description": "This nourishing system will be crafted to hydrate your hair from root to tip while giving a luscious shine, softness, and silkiness to every strand. "
+            }
+        ],
+        "boosterResult": [
+            {
+                "id": 0,
+                "boosterName": "Anti-Breakage",
+                "description": "Nourish the hair fiber, increasing the strength and resistance of the hair. It will increase hair volume and mitigate breakage and, also repair and smoothen the strands."
+            },
+            {
+                "id": 1,
+                "boosterName": "Soothe Scalp",
+                "description": "Strengthen and protect the scalp, reduce excessive oil production, and boost skin circulation. Your system will avoid oily and itchy scalp."
+            },
+            {
+                "id": 2,
+                "boosterName": "Anti-Shrinkage",
+                "description": "Reduce curls shrinkage. It will also realign the hair fibers, reducing frizz."
+            },
+            {
+                "id": 3,
+                "boosterName": "Untangling",
+                "description": "Smooth the interaction between the hair fibers, leaving them soft and aligned, which makes detangle easier."
+            },
+            {
+                "id": 4,
+                "boosterName": "Color Protection",
+                "description": "Protect strands color from oxidation in both natural and in dyed hair."
+            },
+            {
+                "id": 5,
+                "boosterName": "Curl Definition",
+                "description": "Protect and shape strands, bringing to life the most beautiful and durable curls."
+            },
+            {
+                "id": 6,
+                "boosterName": "Lengthen",
+                "description": "Regulate and speed up the hair growth cycle. Also prevent hair from becoming brittle and improve hair fiber strength, promoting visible, long-lasting growth."
+            },
+            {
+                "id": 7,
+                "boosterName": "Deep Condition",
+                "description": "Increase hydration deep inside the hair fiber, giving smoothness and shine."
+            },
+            {
+                "id": 8,
+                "boosterName": "Volumize",
+                "description": "Ensure uniformity of strands and boost natural volume."
+            },
+            {
+                "id": 9,
+                "boosterName": "Humidity Blockage",
+                "description": "Shield against humidity and boost your hair volume with an extra layer of protection."
+            },
+            {
+                "id": 10,
+                "boosterName": "Shine",
+                "description": "Increase intense shine in all curls."
+            },
+            {
+                "id": 11,
+                "boosterName": "Thermal protection",
+                "description": "Block damage from the heat of thermal processes."
+            }
+        ],
+        "focusOn": "FOCUS ON "
+    },
+    "secondSectionIngredients": {
+        "baseIngredients": [
+            {
+                "id": 0,
+                "baseName": "Total Repair",
+                "ingredient": "Carob"
+            },
+            {
+                "id": 1,
+                "baseName": "Total Protect",
+                "ingredient": "Licorice"
+            },
+            {
+                "id": 2,
+                "baseName": "Hydro Power",
+                "ingredient": "Cotton Seed Oil"
+            },
+            {
+                "id": 3,
+                "baseName": "Coil Power",
+                "ingredient": "Sunflower Oil"
+            }
+        ],
+        "boosterIngredients": [
+            {
+                "id": 0,
+                "boosterName": "Anti-Breakage",
+                "ingredient": "Soybeans"
+            },
+            {
+                "id": 1,
+                "boosterName": "Scalp Stoothe",
+                "ingredient": "Red Algae Extract"
+            },
+            {
+                "id": 2,
+                "boosterName": "Anti-Shrinkage",
+                "ingredient": "Calendula Oil"
+            },
+            {
+                "id": 3,
+                "boosterName": "Untangling",
+                "ingredient": "Rose Extract"
+            },
+            {
+                "id": 4,
+                "boosterName": "Color Protection",
+                "ingredient": "Biotin"
+            },
+            {
+                "id": 5,
+                "boosterName": "Curl Definition",
+                "ingredient": "Rice Protein"
+            },
+            {
+                "id": 6,
+                "boosterName": "Lengthen",
+                "ingredient": "Hyaluronic Acid"
+            },
+            {
+                "id": 7,
+                "boosterName": "Deep Condition",
+                "ingredient": "Panthenol"
+            },
+            {
+                "id": 8,
+                "boosterName": "Volume",
+                "ingredient": "Amino-Acids"
+            },
+            {
+                "id": 9,
+                "boosterName": "Humidity Block",
+                "ingredient": "Avocado Oil"
+            },
+            {
+                "id": 10,
+                "boosterName": "Shine",
+                "ingredient": "Castor Oil"
+            },
+            {
+                "id": 11,
+                "boosterName": "Thermal protection",
+                "ingredient": "Sugar Cane"
+            }
+        ]
+    },
+    "thirdSectionRoutine": {
+        "routineShampooWithConditioner": {
+            "description": "Your {HAIR_TYPE}, {HAIR_LENGTH}, {SCALP_DENSITY} hair, is unique and can be absolutely stunning when properly cared for. One of the biggest myths about {HAIR_TYPE} hair is that you can't wash it often. Washing your hair is essential for keeping it healthy and clean. However, you do need to use a gentle, sulfate-free shampoo and conditioner to avoid stripping your hair of its natural oils. You also need to make sure you're not over-washing your hair, which can lead to dryness and breakage. Considering that you have {HOW_OILY} hair with {DAMAGE_LEVEL}, you should wash it once or twice a week."
+        },
+        "routineDeepConditioning": [
+            {
+                "id": 0,
+                "protectiveStyle": 2,
+                "description": "After washing and conditioning your hair, it will be crucial to replenish your scalp and hair natural oils with your Soothing and Strengthening Balm. It will avoid buildup; help stimulate hair growth and soothe your scalp. Crafted to suit your new hair growth needs while using your protective style, it can also be used daily to intensify your hair protection and overall hair health. Apply directly to the scalp and massage gently with your fingertips. This is a no-rinse product, so just apply and go! "
+            },
+            {
+                "id": 1,
+                "protectiveStyle": 1,
+                "damageLevel": "low",
+                "description": "After washing and conditioning your hair, it will be crucial to replenish your scalp and hair natural oils with your {TRATMENT_PRODUCT_NAME}. It will shield your hair from damage and lock the moisture your curls need. Deep conditioning is key to have healthy, bouncy and shiny hair and should be applied once a week. "
+            },
+            {
+                "id": 2,
+                "protectiveStyle": 1,
+                "damageLevel": "medium/high",
+                "description": "After washing and conditioning your hair, it will be crucial to replenish your scalp and hair natural oils with your {TRATMENT_PRODUCT_NAME}. It will help rejuvenate your hair from damage caused by heat, chemical or color treatments. Deep conditioning is key to have healthy, bouncy and shiny hair and should be applied once a week. "
+            }
+        ],
+        "routineStylying": [
+            {
+                "id": 0,
+                "quantityProducts": 2,
+                "description": "We suggested {STYLING_PRODUCT_1} and {STYLING_PRODUCT_2} based on your Hair Consultation to give you the ideal finishing touches for your style. But we know that each hair day is different, and you may want to have more options. Whether you want to tame those flyaways, elongate or define your curls, or simply mix up your look, we have the ideal stylings products so you can express yourself whenever and however you want. "
+            },
+            {
+                "id": 1,
+                "quantityProducts": 3,
+                "description": "We suggested {STYLING_PRODUCT_1}, {STYLING_PRODUCT_2} and {STYLING_PRODUCT_3} based on your Hair Consultation to give you the ideal finishing touches for your style. But we know that each hair day is different, and you may want to have more options. Whether you want to tame those flyaways, elongate or define your curls, or simply mix up your look, we have the ideal stylings products so you can express yourself whenever and however you want. "
+            }
+        ]
+    },
+    "fourthSectionProducts": {
+        "shampooProduct": [
+            {
+                "id": 0,
+                "protectiveStyle": 2,
+                "productName": "Shampoo",
+                "proTip": "Your revitalizing shampoo will contain Jojoba microspheres that dissolve during exfoliation. We added them to help clean your scalp and remove all product buildup. Using your fingertips, gently scrub the water-soluble Jojoba microbeads, using circular motions, feeling the deep scalp pore-cleansing action at work. Lightly rub each knot in the braid, then gently wash the braid. Rinse hair well, fully washing out the shampoo. A second application is recommended for a perfect and complete clean."
+            },
+            {
+                "id": 1,
+                "protectiveStyle": 1,
+                "productName": "Shampoo",
+                "proTip": "Using your fingertips, massage the entire scalp. The massage will remove product buildup and will stimulate your scalp blood circulation, vital for healthy and strong new hair growth. Then rinse hair well, fully washing out the shampoo. A second application is recommended for a complete and nourishing clean."
+            }
+        ],
+        "conditionerProduct": [
+            {
+                "id": 0,
+                "protectiveStyle": 2,
+                "productName": "Conditioner",
+                "proTip": "Your revitalizing conditioner will contain Jojoba microspheres that dissolve during exfoliation. We added them to help clean your scalp and remove all product buildup. Using your fingertips, gently scrub the water-soluble Jojoba microbeads, using circular motions, feeling the deep scalp pore-cleansing action at work. Lightly rub each knot in the braid, then gently wash the braid. Rinse hair well, fully washing out the conditioner. A second application is recommended for a perfect and complete clean."
+            },
+            {
+                "id": 1,
+                "protectiveStyle": 1,
+                "productName": "Conditioner",
+                "proTip": "Using your fingertips, massage the entire scalp. The massage will remove product buildup and will stimulate your scalp blood circulation, vital for healthy and strong new hair growth. Then rinse hair well, fully washing out the conditioner. A second application is recommended for a complete and nourishing clean."
+            }
+        ],
+        "treatmentProduct": [
+            {
+                "id": 0,
+                "productName": "Mask",
+                "proTip": "Apply Your Mask strand by strand, massaging the entire length of the hair from root to tip. Using a wide-toothed comb, tenderly work through your hair. It will help your hair absorb all Your Mask nutrients and improve your hair elasticity and shine."
+            },
+            {
+                "id": 1,
+                "productName": "Balm",
+                "proTip": "Remove excess water from cleansed and conditioned hair using a towel. Be gentle while drying and avoid rubbing or creating frizz. Apply Your Balm directly to the scalp and massage gently with your fingertips. This is a no-rinse product, so just apply and let it air dry."
+            }
+        ],
+        "stylingProduct": [
+            {
+                "id": 0,
+                "productName": "Power Gel",
+                "proTip": "Rub a small amount of gel between your fingers, then scrunch from your ends up towards your roots to define your curls."
+            },
+            {
+                "id": 1,
+                "productName": "Scalp Spray",
+                "proTip": "Apply directly to your scalp and gently massage with your fingertips. Your scalp spray is a mist that is designed to hydrate and soothe your scalp. It is formulated with ingredients that help to moisturize and nourish your scalp, while also providing a cooling and refreshing sensation."
+            },
+            {
+                "id": 2,
+                "productName": "Nourishing Vegetable Oil",
+                "proTip": "Your Nourishing Vegetable Oil is also amazing as a warm therapeutic oil for the strands (a moisturizing treatment for hair nutrition). Just warm Your Oil to body temperature and apply on dry and unwashed hair, strand by strand. Let it sit for 30 minutes. Wash hair once with Your Shampoo (do not use deep cleaning shampoo). You can also use to style your hair according to your preference."
+            },
+            {
+                "id": 3,
+                "productName": "Styling Cream",
+                "proTip": "Let it dry completely (air dry or with a hair dryer using a diffuser), then use your hands to scrunch each strand to increase volume. Avoid upsetting your curls by touching your hair before it’s completely dry."
+            },
+            {
+                "id": 4,
+                "productName": "Refreshing Spray",
+                "proTip": "Your Refreshing Spray is a hair mist that is designed to provide an instant boost of moisture and revive your curls. It is perfect for refreshing your hair on the go, especially when you don't have time for a full wash day."
+            },
+            {
+                "id": 5,
+                "productName": "Vegetable Butter",
+                "proTip": "Your Vegetable Butter is a multitasker! It can be used to style your hair, but also as a deep conditioning treatment. When used as a styling product, apply it and let it dry completely (air dry or with a hair dryer using a diffuser), then use your hands to scrunch each strand to increase volume. Avoid upsetting your curls by touching your hair before it’s completely dry."
+            },
+            {
+                "id": 6,
+                "productName": "Gelatine",
+                "proTip": "The Gelatine light texture is a balanced combination of a gel and a cream, great for hair definition. It gives the hair a wet, glossy look. Let it dry completely (air dry or with a hair dryer using a diffuser), then use your hands to scrunch each strand to increase volume. Avoid upsetting your curls by touching your hair before it’s completely dry."
+            },
+            {
+                "id": 7,
+                "productName": "Hair Mousse",
+                "proTip": "Your Hair Mousse gives an extraordinarily light and voluminous feel, with a non-greasy formula that promotes curl movement and shine. To give you the appearance of fuller, thicker hair, apply it and make sure your hair is completely dry before touching your curls."
+            }
+        ]
+    },
+    "fiveSectionOptionalProducts": {
+        "stylingProduct": [
+            {
+                "id": 0,
+                "productName": "Power Gel",
+                "proTip": "The Power Gel is a strong solution to define and control curl volume and shape. Perfect to maintain amazing hairdos. Tamarindo extract strengthens hair and helps define curls, while vitamin and mineral-rich red algae provides shine, hydration, and strength."
+            },
+            {
+                "id": 1,
+                "productName": "Scalp Spray",
+                "proTip": "The Scalp Spray gives you that refreshed feeling of wash day. It combats itching and instantly uplifts with a heavenly scent. Licorice extract, rose extract, and biotin protect the scalp, working to combat dryness, burning, itching, and hair loss."
+            },
+            {
+                "id": 2,
+                "productName": "Nourishing Vegetable Oil",
+                "proTip": "The Nourishing Vegetable Oil gives a lot of shine, smoothness, and curl definition. Also amazing as a warm therapeutic oil for the strands (a moisturizing treatment for hair nutrition). Contains macadamia, coconut, and argan oils, bringing ultimate softness and hydration."
+            },
+            {
+                "id": 3,
+                "productName": "Styling Cream",
+                "proTip": "The Styling Cream is the perfect balance between curl definition, movement, and volume. It is focused on forming well-structured curls while leaving movement and shine. It promotes easier combing, defines curls, increases shine, and controls frizz. Contains chia and flaxseed to protect hair fibers and calm frizz. Also has aloe vera extract, shea butter, and coconut oil, helping with hair elasticity, scalp protection, shine, and hydration."
+            },
+            {
+                "id": 4,
+                "productName": "Refreshing Spray",
+                "proTip": "The Refreshing Spray makes combing and styling easy. A fantastic ally to refresh your curls, adding shine and a luxurious fragrance. Contains chia and flaxseed to protect hair and tame frizz. Also has Panthenol to deep condition strands."
+            },
+            {
+                "id": 5,
+                "productName": "Vegetable Butter",
+                "proTip": "The Vegetable Butter gives curls long-lasting definition without that dreaded hair crunch. Contains shea butter and coconut oil to moisturize natural hair, leaving it smooth and soft. Also contains murumuru butter for hair elasticity, deep hydration, strength, and protection from environmental damage and breakage."
+            },
+            {
+                "id": 6,
+                "productName": "Gelatine",
+                "proTip": "The Gelatine is all about a sleek look with defined curls and controlled volume. Its light texture is a balanced combination of a gel and a cream, great for hair definition. Contains chia and flaxseed to protect hair fibers and calm frizz. Also has Panthenol to deep condition strands."
+            },
+            {
+                "id": 7,
+                "productName": "Hair Mousse",
+                "proTip": "The Hair Mousse creates defined curls out of waves. It has an extraordinarily light and voluminous feel, with a non-greasy formula that promotes curl movement and shine. Contains Prodew - amino acid complex to promote hair hydration, hair strength, color protection, and softness."
+            }
+        ]
+    }
+}
