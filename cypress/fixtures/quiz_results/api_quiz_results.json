@@ -24,8 +24,8 @@
         "list": [
             {
                 "goalSelected": 1,
-                "boosterId": 26,
-                "name": "Soybeans"
+                "boosterId": 7,
+                "name": "Rose Extract"
             },
             {
                 "goalSelected": 2,
@@ -34,8 +34,8 @@
             },
             {
                 "goalSelected": 3,
-                "boosterId": 7,
-                "name": "Rose Extract"
+                "boosterId": 26,
+                "name": "Soybeans"
             },
             {
                 "goalSelected": 4,
@@ -54,8 +54,8 @@
             },
             {
                 "goalSelected": 7,
-                "boosterId": 18,
-                "name": "Avocado Oil"
+                "boosterId": 31,
+                "name": "Sugar Cane"
             },
             {
                 "goalSelected": 8,
@@ -64,23 +64,23 @@
             },
             {
                 "goalSelected": 9,
-                "boosterId": 31,
-                "name": "Sugar Cane"
+                "boosterId": 18,
+                "name": "Avocado Oil"
             },
             {
                 "goalSelected": 10,
-                "boosterId": 8,
-                "name": "Biotin"
-            },
-            {
-                "goalSelected": 11,
                 "boosterId": 27,
                 "name": "Rice Protein"
             },
             {
-                "goalSelected": 12,
+                "goalSelected": 11,
                 "boosterId": 29,
                 "name": "Amino-Acids"
+            },
+            {
+                "goalSelected": 12,
+                "boosterId": 6,
+                "name": "Biotin"
             }
         ]
     },
@@ -104,11 +104,11 @@
     ],
     "hairCurrentState": [
         {
-            "hairCurrentStateId": 0,
+            "hairCurrentStateId": 1,
             "description": "NATURAL"
         },
         {
-            "hairCurrentStateId": 1,
+            "hairCurrentStateId": 2,
             "description": "NOT_NATURAL"
         }
     ],
@@ -172,7 +172,7 @@
             {
                 "productId": 39,
                 "baseId": 2,
-                "baseName": "Hydro Power",
+                "baseName": "Coil Power",
                 "hairCurrentState": "NATURAL",
                 "productName": "Reconstructive Mask"
             }

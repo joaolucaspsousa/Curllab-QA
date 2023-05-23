@@ -1,6 +1,9 @@
 class PO_QuizResults {
   constructor() {
-    this.Fix_APIQuizResults = require("../fixtures/quiz_results/api_quiz_results.json");
+    (async () => {
+      this.Fix_APIQuizResults =
+        await require("../fixtures/quiz_results/api_quiz_results.json");
+    })();
   }
 
   getResults(answers) {
@@ -10,28 +13,32 @@ class PO_QuizResults {
     const boosters = this._getBoosters(answers.product_goals);
     const stylingRecommendation = this._getStylingRecommendations(answers);
 
+    if (
+      !hairState ||
+      !base ||
+      !treatmentRecommendation ||
+      !boosters ||
+      !stylingRecommendation
+    ) {
+      cy.log(
+        "400: An error occurred while trying to get the hair consultation results."
+      );
+      return null;
+    }
+
     const results = {
       boosters: boosters,
       damageLevel: {
         damageId: hairState.damageId,
         description: hairState.damageLevel,
       },
-      baseName: base,
+      baseName: base.name,
       hairCurrentState: hairState.state,
       products: {
         routineRecommendations: [],
         stylingRecommendations: stylingRecommendation,
         treatmentRecommendation: treatmentRecommendation,
-        hygieneRecommendation: {
-          shampoo: {
-            productId: 40,
-            name: "Shampoo",
-          },
-          conditioner: {
-            productId: 38,
-            name: "Conditioner",
-          },
-        },
+        hygieneRecommendation: this.Fix_APIQuizResults.products.hygieneRecommendation,
       },
     };
 
@@ -39,40 +46,46 @@ class PO_QuizResults {
   }
 
   _getBase(answers, damageLevel) {
-    const protectiveStyle = answers.wearing_style;
+    const protectiveStyle = answers.product_wearing_style;
+    let baseName;
 
     if (protectiveStyle === 2) {
-      return this.Fix_APIQuizResults.baseName.find(
-        this.Fix_APIQuizResults.baseName.name === "Total Protect"
+      const base = this.Fix_APIQuizResults.baseName.find(
+        (element) => element.name === "Total Protect"
       );
+
+      return base ? base : null;
     }
 
-    if (damageLevel === ["Medium", "High"]) {
-      return this.Fix_APIQuizResults.baseName.find(
-        this.Fix_APIQuizResults.baseName.name === "Total Repair"
+    if (["Medium Level", "High Level"].includes(damageLevel)) {
+      const base = this.Fix_APIQuizResults.baseName.find(
+        (element) => element.name === "Total Repair"
       );
+
+      return base ? base : null;
     }
 
-    switch (answers.product_type_of_curl) {
-      case [1, 2, 3]:
-        return this.Fix_APIQuizResults.baseName.find(
-          this.Fix_APIQuizResults.baseName.name === "Hydro Power"
-        );
-
-      case [4, 5, 6]:
-        return this.Fix_APIQuizResults.baseName.find(
-          this.Fix_APIQuizResults.baseName.name === "Coil Power"
-        );
-
-      default:
-        cy.log("404: Type of Curl not found");
+    if ([1, 2, 3].includes(answers.product_type_of_curl)) {
+      baseName = "Hydro Power";
+    } else if ([4, 5, 6, 7].includes(answers.product_type_of_curl)) {
+      baseName = "Coil Power";
+    } else {
+      cy.log("404: Type of Curl not found.");
     }
+
+    const base = this.Fix_APIQuizResults.baseName.find(
+      (element) => element.name === baseName
+    );
+
+    return base ? base : null;
   }
 
   _getTreatmentSystem(base) {
-    return this.Fix_APIQuizResults.treatmentRecommendation.find(
-      this.Fix_APIQuizResults.treatmentRecommendation.name === base
-    );
+    const treatmentRecommendation =
+      this.Fix_APIQuizResults.products.treatmentRecommendation.find(
+        (element) => element.baseName === base.name
+      );
+    return treatmentRecommendation ? treatmentRecommendation : null;
   }
 
   _getBoosters(goals) {
@@ -82,10 +95,10 @@ class PO_QuizResults {
     };
 
     goals.forEach((goal) => {
-      const booster = this.Fix_APIQuizResults.boosters.find(
-        this.Fix_APIQuizResults.boosters.goalSelected === goal
+      const booster = this.Fix_APIQuizResults.boosters.list.find(
+        (element) => element.goalSelected === goal
       );
-      boosters.list.push(booster);
+      booster ? boosters.list.push(booster) : null;
     });
 
     switch (goals.length) {
@@ -96,30 +109,39 @@ class PO_QuizResults {
 
       case 2:
         boosters.concentration =
-          Fix_APIQuizResults.boosters.twoGoalsConcentration;
+          this.Fix_APIQuizResults.boosters.twoGoalsConcentration;
         break;
 
       case 3:
         boosters.concentration =
-          Fix_APIQuizResults.boosters.threeGoalsConcentration;
+          this.Fix_APIQuizResults.boosters.threeGoalsConcentration;
         break;
 
       default:
         cy.log(
-          "400: It was not possible to determine the concentration of the booster"
+          "400: It was not possible to determine the concentration of the booster."
         );
-
-        return boosters;
+        break;
     }
+
+    return boosters.list.length !== 0 ? boosters : null;
   }
 
   _getStylingRecommendations(answers) {
-    const protectiveStyle = answers.wearing_style;
+    const protectiveStyle = answers.product_wearing_style;
     const stylingRecommendations = [];
     const indexProducts = [];
 
     if (protectiveStyle === 2) {
-      indexProducts.push(0, 1, 4);
+      stylingRecommendations.push(
+        this.Fix_APIQuizResults.products.stylingRecommendations[0],
+        this.Fix_APIQuizResults.products.stylingRecommendations[1],
+        this.Fix_APIQuizResults.products.stylingRecommendations[4]
+      );
+
+      return stylingRecommendations.length !== 0
+        ? stylingRecommendations
+        : null;
     }
 
     switch (answers.product_style_formats) {
@@ -146,11 +168,15 @@ class PO_QuizResults {
       case 4:
         if (answers.product_type_of_curl === 1) {
           indexProducts.push(7, 4);
-        } else if (answers.product_type_of_curl === [2, 3]) {
+        } else if ([2, 3].includes(answers.product_type_of_curl)) {
           indexProducts.push(6, 4);
         } else {
           indexProducts.push(2, 4);
         }
+        break;
+
+      default:
+        cy.log("404: Style Format not found.");
         break;
     }
 
@@ -160,61 +186,57 @@ class PO_QuizResults {
       );
     });
 
-    return stylingRecommendations;
+    return stylingRecommendations.length !== 0 ? stylingRecommendations : null;
   }
 
   _getHairState(answers) {
-    const hairState = {};
-    const protectiveStyle = answers.wearing_style;
+    let hairCurrentState = this.Fix_APIQuizResults.hairCurrentState.find(
+      (element) => element.hairCurrentStateId == answers.product_wearing_style
+    );
 
-    if (protectiveStyle === 2) {
-      hairState.hairCurrentState = "NOT_NATURAL";
-    } else {
-      hairState.hairCurrentState = "NATURAL";
-    }
+    const damageLevel = this._getDamageLevel(
+      answers.hair_loss,
+      answers.breakage,
+      answers.shine,
+      answers.split_ends
+    );
 
-    levelDamage = this._getDamageLevel(answers.product_damage_level);
-
-    return {
-      damageId: levelDamage.damageId,
-      damageLevel: levelDamage.damageLevel,
-      state: hairState.hairCurrentState,
-    };
+    return damageLevel
+      ? {
+          damageId: damageLevel.damageId,
+          damageLevel: damageLevel.description,
+          state: hairCurrentState,
+        }
+      : null;
   }
 
   _getDamageLevel(hairLoss, breakage, shine, splitEnds) {
-    if (shine === [1, 2]) {
+    if ([1, 2].includes(shine)) {
       shine = 5;
-    } else if (shine === [3, 4]) {
+    } else if ([3, 4].includes(shine)) {
       shine = 2;
     } else {
       shine = 1;
     }
 
-    const level = max(hairLoss, breakage, shine, splitEnds);
+    let level = Math.max(hairLoss, breakage, shine, splitEnds);
 
-    switch (level) {
-      case 1:
-        level = "Low Level";
-        break;
-
-      case [2, 3]:
-        level = "Medium Level";
-        break;
-
-      case [4, 5]:
-        level = "High Level";
-        break;
-
-      default:
-        cy.log("400: It was not possible to determine the level of damage");
-        break;
+    if (level === 1) {
+      level = "Low Level";
+    } else if ([2, 3].includes(level)) {
+      level = "Medium Level";
+    } else if ([4, 5].includes(level)) {
+      level = "High Level";
+    } else {
+      cy.log("400: It was not possible to determine the level of damage.");
     }
 
-    return this.Fix_APIQuizResults.damageLevel.find(
-      this.Fix_APIQuizResults.damageLevel.level === level
+    const damageLevel = this.Fix_APIQuizResults.damageLevel.find(
+      (element) => element.description === level
     );
+
+    return damageLevel ? damageLevel : null;
   }
 }
 
-export default PO_QuizResults;
+export default { PO_QuizResults };
