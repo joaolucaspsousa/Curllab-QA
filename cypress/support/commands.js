@@ -1,5 +1,5 @@
-import { LCT_NavBar } from "../locators/components/lct_navbar";
-import { LCT_LoginModal } from "../locators/components/lct_login_modal";
+import { Locators_NavBar } from "../locators/components/lct_navbar";
+import { Locators_LoginModal } from "../locators/components/lct_login";
 
 Cypress.Commands.add(
   "login",
@@ -10,13 +10,13 @@ Cypress.Commands.add(
   ) => {
     const login = () => {
       cy.visit("/uat");
-      cy.get(LCT_NavBar.myAccount).click();
+      cy.get(Locators_NavBar.myAccount).click();
 
-      cy.get(LCT_LoginModal.email).type(user);
-      cy.get(LCT_LoginModal.password).type(password, { log: false });
-      cy.get(LCT_LoginModal.loginButton).click();
+      cy.get(Locators_LoginModal.email).type(user);
+      cy.get(Locators_LoginModal.password).type(password, { log: false });
+      cy.get(Locators_LoginModal.loginButton).click();
 
-      cy.get(LCT_LoginModal.email).should("not.be.visible");
+      cy.get(Locators_LoginModal.email).should("not.be.visible");
     };
 
     const validate = () => {
@@ -64,4 +64,14 @@ Cypress.Commands.add("expected", (element, assert, expected, boolean) => {
         break;
     }
   });
+});
+
+
+Cypress.Commands.add("loggedStatus", () => {
+  cy.getLocalStorage("user").should("exist");
+  if(cy.getLocalStorage("user").should("exist")){
+    return true;
+  }
+
+  return false;
 });

@@ -9,7 +9,8 @@ class PO_MyFavorites {
     return new Promise((resolve, reject) => {
       cy.get(Locators_MyFavorites.favoritesListItem(product)).then(($product) => {
         resolve($product.text());
-      });
+      })
+      reject("404: Product not found");
     });
   }
 

@@ -7,7 +7,7 @@ class PO_MyAccount {
     this.emailInput = Locators_MyAccount.emailInput;
   }
 
-  fillFirstName(firstName) {
+  _fillFirstName(firstName) {
     if (firstName == "") {
       cy.get(this.firstNameInput).clear();
       return;
@@ -16,7 +16,7 @@ class PO_MyAccount {
     cy.get(this.firstNameInput).clear().type(firstName);
   }
 
-  fillLastName(lastName) {
+  _fillLastName(lastName) {
     if (lastName == "") {
       cy.get(this.lastNameInput).clear();
       return;
@@ -25,7 +25,7 @@ class PO_MyAccount {
     cy.get(this.lastNameInput).clear().type(lastName);
   }
 
-  fillEmail(email) {
+  _fillEmail(email) {
     if (email == "") {
       cy.get(this.emailInput).clear();
       return;
@@ -36,9 +36,9 @@ class PO_MyAccount {
 
   editUserDetails(userDto) {
     cy.get(Locators_MyAccount.editDetailsButton).click();
-    this.fillFirstName(userDto.firstName);
-    this.fillLastName(userDto.lastName);
-    this.fillEmail(userDto.email);
+    this._fillFirstName(userDto.firstName);
+    this._fillLastName(userDto.lastName);
+    this._fillEmail(userDto.email);
   }
 }
 

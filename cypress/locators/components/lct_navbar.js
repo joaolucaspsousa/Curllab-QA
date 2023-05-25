@@ -1,4 +1,4 @@
-let LCT_NavBar = {
+let Locators_NavBar = {
   logo: "nav > :nth-child(1) > img",
 
   // Pages links
@@ -14,4 +14,4 @@ let LCT_NavBar = {
   myAccount: "#icons > .profile > .img-profile",
 };
 
-export default { LCT_NavBar };
+export default { Locators_NavBar };

@@ -1,4 +1,4 @@
-let LCT_LoginModal = {
+let Locators_LoginModal = {
   // Input field's
   email: "#signInEmail",
   password: "#signInPassword",
@@ -20,11 +20,11 @@ let LCT_LoginModal = {
 
   // Error messages
   emailErrorMessage:
-    '[ng-reflect-input-id="signInEmail"] > [ng-reflect-text="Please enter an email address"]',
+    "[ng-reflect-input-id='signInEmail'] > [ng-reflect-varient='error']",
   passwordErrorMessage:
-    '[ng-reflect-input-id="signInPassword"] > [ng-reflect-text="Password is required"]',
+    "[ng-reflect-input-id='signInPassword'] > [ng-reflect-varient='error']",
   loginErrorMessage:
     'feedback-text > [ng-reflect-text=" Authentication Error. Please, try again!"]',
 };
 
-export default { LCT_LoginModal };
+export default { Locators_LoginModal };

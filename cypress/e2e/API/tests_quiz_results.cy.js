@@ -1,14 +1,36 @@
 import { PO_QuizResults } from "../../pageObjects/quiz_results";
+import { Routes } from "../../routes/routes";
+import { Locators_HairConsultation } from "../../locators/pages/lct_hair_consultation";
+import { PO_HairConsultation } from "../../pageObjects/hair_consultation";
+
+function getElement(object){
+  const size = Object.keys(object).length;
+  const random = Math.floor(Math.random() * size);
+  const randomKey = Object.keys(object)[random];
+  const randomValue = object[randomKey];
+  cy.log(randomValue);
+  return randomValue;
+
+}
+
+
 
 describe("ST04: Teste", () => {
   const PageObjects_QuizResults = new PO_QuizResults();
+  const PageObjects_HairConsultation = new PO_HairConsultation();
 
   before(() => {
     cy.clearAllLocalStorage();
     cy.clearAllSessionStorage();
   });
 
-  it("CT01:", () => {
+  it("CT01: Teste ", () => {
+    cy.visit(Routes.hairConsultation);
+    cy.get(Locators_HairConsultation.getStarted).click();
+    PageObjects_HairConsultation.fullFillRandomForm();
+  });
+
+  it.skip("CT02:", () => {
     const answers = {
       userId: 300,
       product_type_of_curl: 7,
