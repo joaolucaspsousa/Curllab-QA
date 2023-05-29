@@ -2,7 +2,7 @@ import { Routes } from "../../../routes/routes";
 import { PO_MyOrders } from "../../../pageObjects/my_orders";
 import { AS_MyOrders } from "./asserts_my_orders";
 
-describe("ST02: Tests of the My Favorites section of the logged-in area / Analyze all scenarios and flows in this section", () => {
+describe("ST04: Tests of the My Orders section of the logged-in area / Analyze all scenarios and flows in this section", () => {
   const PageObjects_MyOrders = new PO_MyOrders();
   const Asserts_MyOrders = new AS_MyOrders();
 

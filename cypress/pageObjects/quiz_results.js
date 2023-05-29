@@ -21,7 +21,7 @@ class PO_QuizResults {
       !stylingRecommendation
     ) {
       cy.log(
-        "400: An error occurred while trying to get the hair consultation results."
+        "[Quiz Results] 400: An error occurred while trying to get the hair consultation results."
       );
       return null;
     }
@@ -38,7 +38,8 @@ class PO_QuizResults {
         routineRecommendations: [],
         stylingRecommendations: stylingRecommendation,
         treatmentRecommendation: treatmentRecommendation,
-        hygieneRecommendation: this.Fix_APIQuizResults.products.hygieneRecommendation,
+        hygieneRecommendation:
+          this.Fix_APIQuizResults.products.hygieneRecommendation,
       },
     };
 
@@ -54,6 +55,7 @@ class PO_QuizResults {
         (element) => element.name === "Total Protect"
       );
 
+      cy.log(`[Quiz Results] Base: ${JSON.stringify(base)}`);
       return base ? base : null;
     }
 
@@ -62,6 +64,7 @@ class PO_QuizResults {
         (element) => element.name === "Total Repair"
       );
 
+      cy.log(`[Quiz Results] Base: ${JSON.stringify(base)}`);
       return base ? base : null;
     }
 
@@ -70,12 +73,14 @@ class PO_QuizResults {
     } else if ([4, 5, 6, 7].includes(answers.product_type_of_curl)) {
       baseName = "Coil Power";
     } else {
-      cy.log("404: Type of Curl not found.");
+      cy.log("[Quiz Results] 404: Type of Curl not found.");
     }
 
     const base = this.Fix_APIQuizResults.baseName.find(
       (element) => element.name === baseName
     );
+
+    cy.log(`[Quiz Results] Base: ${JSON.stringify(base)}`);
 
     return base ? base : null;
   }
@@ -85,6 +90,13 @@ class PO_QuizResults {
       this.Fix_APIQuizResults.products.treatmentRecommendation.find(
         (element) => element.baseName === base.name
       );
+
+    cy.log(
+      `[Quiz Results] Treatment Recommendation: ${JSON.stringify(
+        treatmentRecommendation
+      )}`
+    );
+
     return treatmentRecommendation ? treatmentRecommendation : null;
   }
 
@@ -119,10 +131,12 @@ class PO_QuizResults {
 
       default:
         cy.log(
-          "400: It was not possible to determine the concentration of the booster."
+          "[Quiz Results] 400: It was not possible to determine the concentration of the booster."
         );
         break;
     }
+
+    cy.log(`[Quiz Results] Boosters: ${JSON.stringify(boosters)}`);
 
     return boosters.list.length !== 0 ? boosters : null;
   }
@@ -137,6 +151,12 @@ class PO_QuizResults {
         this.Fix_APIQuizResults.products.stylingRecommendations[0],
         this.Fix_APIQuizResults.products.stylingRecommendations[1],
         this.Fix_APIQuizResults.products.stylingRecommendations[4]
+      );
+
+      cy.log(
+        `[Quiz Results] Styling Recommendations: ${JSON.stringify(
+          stylingRecommendations
+        )}`
       );
 
       return stylingRecommendations.length !== 0
@@ -176,7 +196,7 @@ class PO_QuizResults {
         break;
 
       default:
-        cy.log("404: Style Format not found.");
+        cy.log("[Quiz Results] 404: Style Format not found.");
         break;
     }
 
@@ -185,6 +205,12 @@ class PO_QuizResults {
         this.Fix_APIQuizResults.products.stylingRecommendations[index]
       );
     });
+
+    cy.log(
+      `[Quiz Results] Styling Recommendations: ${JSON.stringify(
+        stylingRecommendations
+      )}`
+    );
 
     return stylingRecommendations.length !== 0 ? stylingRecommendations : null;
   }
@@ -199,6 +225,10 @@ class PO_QuizResults {
       answers.breakage,
       answers.shine,
       answers.split_ends
+    );
+
+    cy.log(
+      `[Quiz Results] Damage Level Object: ${JSON.stringify(damageLevel)}`
     );
 
     return damageLevel
@@ -228,12 +258,16 @@ class PO_QuizResults {
     } else if ([4, 5].includes(level)) {
       level = "High Level";
     } else {
-      cy.log("400: It was not possible to determine the level of damage.");
+      cy.log(
+        "[Quiz Results] 400: It was not possible to determine the level of damage."
+      );
     }
 
     const damageLevel = this.Fix_APIQuizResults.damageLevel.find(
       (element) => element.description === level
     );
+
+    cy.log(`[Quiz Results] Damage Level: ${damageLevel.description}`);
 
     return damageLevel ? damageLevel : null;
   }

@@ -4,10 +4,10 @@ import { Locators_SeeResults } from "../locators/components/lct_see_results";
 
 class PO_HairConsultation {
   constructor() {
-    const user = new DTO_User();
-    this.firstName = user.getSimplifyUser().firstName;
-    this.lastName = user.getSimplifyUser().lastName;
-    this.email = user.getSimplifyUser().email;
+    const userDto = new DTO_User();
+    this.firstName = userDto.getSimplifyUser().firstName;
+    this.lastName = userDto.getSimplifyUser().lastName;
+    this.email = userDto.getSimplifyUser().email;
   }
 
   fullFillRandomForm() {
@@ -95,11 +95,14 @@ class PO_HairConsultation {
       if (!random) {
         cy.get(slider).invoke("val", value).trigger("change");
       } else {
+        value = Math.round(Math.random() * objectSize);
         cy.get(slider)
-          .invoke("val", Math.round(Math.random() * objectSize))
+          .invoke("val", value)
           .trigger("change");
       }
     });
+
+    cy.log(`[Hair Consultation] ${Locators_HairConsultation.currentQuestion.title} | Value: ${value}}`)
 
     if (!navigate) return;
 
@@ -115,9 +118,12 @@ class PO_HairConsultation {
     if (!random) {
       cy.get(this._getSpecificElement(object, option)).click();
     } else {
-      cy.get(this._getRandomElement(object)).click();
+      option = this._getRandomElement(object);
+      cy.get(option).click();
     }
 
+    cy.log(`[Hair Consultation] ${Locators_HairConsultation.currentQuestion.title} | Option: ${option}}`);
+    
     cy.get(navigate).click();
   }
 
@@ -133,6 +139,8 @@ class PO_HairConsultation {
   }
 
   _fillSeeResultsModal() {
+    cy.log("[Hair Consultation] Filling See Results Modal");
+    cy.log(`[Hair Consultation] User: ${this.firstName} | ${this.lastName} | ${this.email}`);
     cy.get(Locators_SeeResults.firstName).type(this.firstName);
     cy.get(Locators_SeeResults.lastName).type(this.lastName);
     cy.get(Locators_SeeResults.email).type(this.email);

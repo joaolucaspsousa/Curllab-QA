@@ -3,18 +3,6 @@ import { Routes } from "../../routes/routes";
 import { Locators_HairConsultation } from "../../locators/pages/lct_hair_consultation";
 import { PO_HairConsultation } from "../../pageObjects/hair_consultation";
 
-function getElement(object){
-  const size = Object.keys(object).length;
-  const random = Math.floor(Math.random() * size);
-  const randomKey = Object.keys(object)[random];
-  const randomValue = object[randomKey];
-  cy.log(randomValue);
-  return randomValue;
-
-}
-
-
-
 describe("ST04: Teste", () => {
   const PageObjects_QuizResults = new PO_QuizResults();
   const PageObjects_HairConsultation = new PO_HairConsultation();
@@ -24,10 +12,11 @@ describe("ST04: Teste", () => {
     cy.clearAllSessionStorage();
   });
 
-  it("CT01: Teste ", () => {
+  it("CT01: responder todas perguntas ", () => {
     cy.visit(Routes.hairConsultation);
     cy.get(Locators_HairConsultation.getStarted).click();
     PageObjects_HairConsultation.fullFillRandomForm();
+
   });
 
   it.skip("CT02:", () => {

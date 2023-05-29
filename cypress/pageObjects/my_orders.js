@@ -5,30 +5,59 @@ class PO_MyOrders {
     this.ordersList = Locators_MyOrders.ordersList;
   }
 
-  getNameOrder(order) {
-    const length = this.getLengthOfOrdersList();
-
-    if (length > 0) {
-      return new Promise((resolve, reject) => {
-        cy.get(Locators_MyOrders.ordersListItem(order)).then(($order) => {
-          resolve($order.text());
-        });
-      });
-    }
-  }
+  // Whenever we need to get an attribute of an element in cypress (be it the size, description or related items), we need to return a promise
 
   getLengthOfOrdersList() {
-    // TO DO: Fix this method
-    return 2;
+    return new Promise((resolve, reject) => {
+      cy.get(this.ordersList).then(($orders) => {
+        const length = $orders.children().length;
+        if (length == 0) {
+          cy.log("[MyOrders] The list of orders is empty");
+          reject(new Error("[MyOrders] The list of orders is empty"));
+        } else {
+          cy.log(`[MyOrders] The list of orders has ${length} products`);
+          resolve(length);
+        }
+      });
+    });
+  }
+
+  getNameOrder(order) {
+    return new Promise((resolve, reject) => {
+      const length = this.getLengthOfOrdersList();
+
+      length
+        .then((length) => {
+          if (length) {
+            cy.get(Locators_MyOrders.ordersListItem(order)).then(($order) => {
+              cy.log(`[MyOrders] Order Name: ${order.text()}`);
+              resolve($order.text());
+            });
+          } else {
+            reject(new Error("[MyOrders] The list of orders is empty"));
+          }
+        })
+        .catch((error) => {
+          cy.log(error.message);
+        });
+    });
   }
 
   viewOrder(order) {
     const length = this.getLengthOfOrdersList();
-    if (length > 0) {
-      cy.get(Locators_MyOrders.ordersListItem(order))
-        .invoke("removeAttr", "target")
-        .click();
-    }
+
+    length
+      .then((length) => {
+        if (length) {
+          cy.log(`[MyOrders] View Order: ${order}`);
+          cy.get(Locators_MyOrders.ordersListItem(order))
+            .invoke("removeAttr", "target")
+            .click();
+        }
+      })
+      .catch((error) => {
+        cy.log(error.message);
+      });
   }
 }
 
