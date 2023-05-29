@@ -23,8 +23,8 @@ describe("ST03: Tests of the My Favorites section of the logged-in area / Analyz
   });
 
   it("CT03: Remove a product from favorites", () => {
-    PageObjects_MyFavorites.getNameProductFavorites(1).then((nameProduct) => {
-      PageObjects_MyFavorites.removeProduct(1);
+    PageObjects_MyFavorites.getNameProductFavorites(3).then((nameProduct) => {
+      PageObjects_MyFavorites.removeProduct(3);
       Asserts_MyFavorites.CT03(nameProduct);
     });
   });

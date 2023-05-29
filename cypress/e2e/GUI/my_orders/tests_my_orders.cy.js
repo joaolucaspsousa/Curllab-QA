@@ -16,8 +16,10 @@ describe("ST04: Tests of the My Orders section of the logged-in area / Analyze a
   });
 
   it("CT02: View a order to user", () => {
-    PageObjects_MyOrders.viewOrder(1).then((result) => {
-      Asserts_MyOrders.CT02();
+    cy.wait(2000);
+    PageObjects_MyOrders.getNameOrder(1).then((nameOrder) => {
+      PageObjects_MyOrders.viewOrder(1);
+      Asserts_MyOrders.CT02(nameOrder);
     });
   });
 });

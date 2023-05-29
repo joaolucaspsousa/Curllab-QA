@@ -3,14 +3,46 @@ import { Locators_MyFavorites } from "../locators/pages/lct_my_favorites";
 class PO_MyFavorites {
   constructor() {
     this.favoritesList = Locators_MyFavorites.favoritesList;
+    this.favoritesListItem = Locators_MyFavorites.favoritesListItem;
   }
 
   // Whenever we need to get an attribute of an element in cypress (be it the size, description or related items), we need to return a promise
 
+  // This method verify if the element exists in the list of favorites, if it exists, it returns the element, if it does not exist, it returns an error
+  _checkElementExists(indexElement) {
+    return new Promise((resolve, reject) => {
+      const length = this.getLengthOfFavoritesList();
+
+      length
+        .then((length) => {
+          if (indexElement <= length) {
+            cy.log("[MyFavorites] The Element searched exists in the list");
+            cy.get(this.favoritesListItem(indexElement)).then(
+              ($product) => {
+                resolve($product);
+              }
+            );
+          } else {
+            reject(
+              new Error(
+                `[MyFavorites] The Element searched is ${indexElement}, but the list has ${length} elements`
+              )
+            );
+          }
+        })
+        .catch((error) => {
+          reject(
+            new Error(
+              "[MyFavorites] The Element searched is not found in the list, but the list of favorites is empty"
+            )
+          );
+        });
+    });
+  }
+
   getLengthOfFavoritesList() {
     return new Promise((resolve, reject) => {
-      cy.get(this.favoritesList).then(($favorites) => {
-        const length = $favorites.children().length;
+      cy.get(this.favoritesList).invoke('children').its('length').then((length) => {
         if (length == 0) {
           cy.log("[MyFavorites] The list of favorites is empty");
           reject(new Error("[MyFavorites] The list of favorites is empty"));
@@ -24,20 +56,12 @@ class PO_MyFavorites {
 
   getNameProductFavorites(product) {
     return new Promise((resolve, reject) => {
-      const length = this.getLengthOfFavoritesList();
+      const exists = this._checkElementExists(product);
 
-      length
-        .then((length) => {
-          if (length) {
-            cy.get(Locators_MyFavorites.favoritesListItem(product)).then(
-              ($product) => {
-                cy.log(`[MyFavorites] Product Name: ${$product.text()}`);
-                resolve($product.text());
-              }
-            );
-          } else {
-            reject(new Error("[MyFavorites] The list of favorites is empty"));
-          }
+      exists
+        .then((element) => {
+          cy.log(`[MyFavorites] Product Name: ${element.text()}`);
+          resolve(element.text());
         })
         .catch((error) => {
           cy.log(error.message);
@@ -46,14 +70,12 @@ class PO_MyFavorites {
   }
 
   viewProduct(product) {
-    const length = this.getLengthOfFavoritesList();
+    const exists = this._checkElementExists(product);
 
-    length
-      .then((length) => {
-        if (length) {
-          cy.log(`[MyFavorites] View Product: ${product}`);
-          cy.get(Locators_MyFavorites.favoritesListItem(product)).click();
-        }
+    exists
+      .then((element) => {
+        cy.log(`[MyFavorites] View Product: ${element.text()}`);
+        cy.get(element).click();
       })
       .catch((error) => {
         cy.log(error.message);
@@ -61,14 +83,12 @@ class PO_MyFavorites {
   }
 
   removeProduct(product) {
-    const length = this.getLengthOfFavoritesList();
+    const exists = this._checkElementExists(product);
 
-    length
-      .then((length) => {
-        if (length) {
-          cy.log(`[MyFavorites] Remove Product: ${product}`);
-          cy.get(Locators_MyFavorites.removeListItem(product)).click();
-        }
+    exists
+      .then((element) => {
+        cy.log(`[MyFavorites] Remove Product: ${element.text()}`);
+        cy.get(element).click();
       })
       .catch((error) => {
         cy.log(error.message);
