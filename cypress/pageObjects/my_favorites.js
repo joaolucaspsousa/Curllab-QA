@@ -2,8 +2,8 @@ import { Locators_MyFavorites } from "../locators/pages/lct_my_favorites";
 
 class PO_MyFavorites {
   constructor() {
-    this.favoritesList = Locators_MyFavorites.favoritesList;
-    this.favoritesListItem = Locators_MyFavorites.favoritesListItem;
+    this._favoritesList = Locators_MyFavorites.favoritesList;
+    this._favoritesListItem = Locators_MyFavorites.favoritesListItem;
   }
 
   // Whenever we need to get an attribute of an element in cypress (be it the size, description or related items), we need to return a promise
@@ -17,7 +17,7 @@ class PO_MyFavorites {
         .then((length) => {
           if (indexElement <= length) {
             cy.log("[MyFavorites] The Element searched exists in the list");
-            cy.get(this.favoritesListItem(indexElement)).then(
+            cy.get(this._favoritesListItem(indexElement)).then(
               ($product) => {
                 resolve($product);
               }
@@ -42,7 +42,7 @@ class PO_MyFavorites {
 
   getLengthOfFavoritesList() {
     return new Promise((resolve, reject) => {
-      cy.get(this.favoritesList).invoke('children').its('length').then((length) => {
+      cy.get(this._favoritesList).invoke('children').its('length').then((length) => {
         if (length == 0) {
           cy.log("[MyFavorites] The list of favorites is empty");
           reject(new Error("[MyFavorites] The list of favorites is empty"));

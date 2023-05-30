@@ -2,42 +2,42 @@ import { Locators_MyAccount } from "../locators/pages/lct_my_account";
 
 class PO_MyAccount {
   constructor() {
-    this.firstNameInput = Locators_MyAccount.firstNameInput;
-    this.lastNameInput = Locators_MyAccount.lastNameInput;
-    this.emailInput = Locators_MyAccount.emailInput;
+    this._firstNameInput = Locators_MyAccount.firstNameInput;
+    this._lastNameInput = Locators_MyAccount.lastNameInput;
+    this._emailInput = Locators_MyAccount.emailInput;
   }
 
   _fillFirstName(firstName) {
     cy.log(`[MyAccount] First Name: ${firstName}`);
 
     if (firstName == "") {
-      cy.get(this.firstNameInput).clear();
+      cy.get(this._firstNameInput).clear();
       return;
     }
 
-    cy.get(this.firstNameInput).clear().type(firstName);
+    cy.get(this._firstNameInput).clear().type(firstName);
   }
 
   _fillLastName(lastName) {
     cy.log(`[MyAccount] Last Name: ${lastName}`);
 
     if (lastName == "") {
-      cy.get(this.lastNameInput).clear();
+      cy.get(this._lastNameInput).clear();
       return;
     }
 
-    cy.get(this.lastNameInput).clear().type(lastName);
+    cy.get(this._lastNameInput).clear().type(lastName);
   }
 
   _fillEmail(email) {
     cy.log(`[MyAccount] Email: ${email}`);
 
     if (email == "") {
-      cy.get(this.emailInput).clear();
+      cy.get(this._emailInput).clear();
       return;
     }
 
-    cy.get(this.emailInput).clear().type(email);
+    cy.get(this._emailInput).clear().type(email);
   }
 
   editUserDetails(userDto) {

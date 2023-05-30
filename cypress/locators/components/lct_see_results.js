@@ -1,8 +1,8 @@
 let Locators_SeeResults = {
     // Input field's
-    firstName: "#seeResultsFirstName",
-    lastName: "#seeResultsLastName",
-    email: "#seeResultsEmail",
+    firstNameInput: "#seeResultsFirstName",
+    lastNameInput: "#seeResultsLastName",
+    emailInput: "#seeResultsEmail",
     newsletter: ".round > label",
 
     // Buttons

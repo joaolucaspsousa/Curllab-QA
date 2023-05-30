@@ -2,8 +2,8 @@ import { Locators_MyOrders } from "../locators/pages/lct_my_orders";
 
 class PO_MyOrders {
   constructor() {
-    this.ordersList = Locators_MyOrders.ordersList;
-    this.ordersListItem = Locators_MyOrders.ordersListItem;
+    this._ordersList = Locators_MyOrders.ordersList;
+    this._ordersListItem = Locators_MyOrders.ordersListItem;
   }
 
   // Whenever we need to get an attribute of an element in cypress (be it the size, description or related items), we need to return a promise
@@ -17,7 +17,7 @@ class PO_MyOrders {
         .then((length) => {
           if (indexElement <= length) {
             cy.log("[MyOrders] The Element searched exists in the list");
-            cy.get(this.ordersListItem(indexElement)).then(
+            cy.get(this._ordersListItem(indexElement)).then(
               ($order) => {
                 resolve($order);
               }
@@ -42,7 +42,7 @@ class PO_MyOrders {
 
   getLengthOfOrdersList() {
     return new Promise((resolve, reject) => {
-      cy.get(this.ordersList).invoke('children').its('length').then((length) => {
+      cy.get(this._ordersList).invoke('children').its('length').then((length) => {
         if (length == 0) {
           reject(new Error("[MyOrders] The list of orders is empty"));
         } else {

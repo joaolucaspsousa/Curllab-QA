@@ -1,7 +1,7 @@
 let Locators_HairConsultation = {
   // Initial Page
   welcomeTitle: ".quiz__header__title",
-  getStarted: ".quiz__identification > .default-button",
+  getStartedButton: ".quiz__identification > .default-button",
 
   previousButton:
     ".quiz__question--displaying > quiz-buttons > .quiz-buttons > :nth-child(1)",

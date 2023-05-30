@@ -66,10 +66,9 @@ Cypress.Commands.add("expected", (element, assert, expected, boolean) => {
   });
 });
 
-
 Cypress.Commands.add("loggedStatus", () => {
   cy.getLocalStorage("user").should("exist");
-  if(cy.getLocalStorage("user").should("exist")){
+  if (cy.getLocalStorage("user").should("exist")) {
     return true;
   }
 

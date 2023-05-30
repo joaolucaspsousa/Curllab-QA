@@ -3,82 +3,164 @@ import { DTO_User as DTO_User } from "../dto/user_dto";
 import { Locators_SeeResults } from "../locators/components/lct_see_results";
 
 class PO_HairConsultation {
+  // 1° First Question: WHAT IS MY NATURAL HAIR TYPE?
+  // 2° Second Question: HOW LONG IS MY HAIR?
+  // 3° Third Question: HOW DENSE IS MY HAIR?
+  // 4° Fourth Question: HOW OILY IS MY HAIR?
+  // 5° Fifth Question: HOW DAMAGED IS MY HAIR?
+  // 6° Sixth Question: WHAT ARE MY TOP HAIR GOALS?
+  // 7° Seventh Question: HOW OFTEN DO I WASH MY HAIR?
+  // 8° Eighth Question: HOW OFTEN DO I DEEP CONDITION MY HAIR?
+  // 9° Ninth Question: AM I CURRENTLY WEARING ANY OF THE FOLLOWING STYLES?
+  // 10° Tenth Question: HOW IMPORTANT IS EACH OF THESE TO ME WHEN I STYLE MY HAIR?
+  // 11° Eleventh Question: WHAT COLOR WOULD I LIKE MY PRODUCT TO BE?
+  // 12° Twelfth Question: WHO IS THIS PRODUCT FOR?
+  // 13° Thirteenth Question: WHAT SCENT WOULD I LIKE MY PRODUCT TO HAVE?
+  // 14° SUBMIT
+
   constructor() {
-    const userDto = new DTO_User();
-    this.firstName = userDto.getSimplifyUser().firstName;
-    this.lastName = userDto.getSimplifyUser().lastName;
-    this.email = userDto.getSimplifyUser().email;
+    // Mass of Data
+    this.userDto = new DTO_User();
+
+    this.firstNameInput = Locators_SeeResults.firstNameInput;
+    this.lastNameInput = Locators_SeeResults.lastNameInput;
+    this.emailInput = Locators_SeeResults.emailInput;
+    this.getResultsButton = Locators_SeeResults.getResultsButton;
+
+    // Buttons navigation
+    this.getStartedButton = Locators_HairConsultation.getStartedButton;
+    this.previousButton = Locators_HairConsultation.previousButton;
+    this.nextButton = Locators_HairConsultation.nextButton;
+    this.submitButton = Locators_HairConsultation.submitButton;
+
+    // Questions
+    this._questions = {
+      _firstQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.anyQuestion.slider,
+      },
+      _secondQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.anyQuestion.slider,
+      },
+      _thirdQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.anyQuestion.slider,
+      },
+      _fourthQuestion: {
+        type: "option",
+        locator: Locators_HairConsultation.fourthQuestion,
+      },
+      _fifthQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.fifthQuestion,
+      },
+      _sixthQuestion: {
+        type: "option",
+        locator: Locators_HairConsultation.sixthQuestion,
+      },
+      _seventhQuestion: {
+        type: "option",
+        locator: Locators_HairConsultation.seventhQuestion,
+      },
+      _eighthQuestion: {
+        type: "option",
+        locator: Locators_HairConsultation.eighthQuestion,
+      },
+      _ninthQuestion: {
+        type: "option",
+        locator: Locators_HairConsultation.ninthQuestion,
+      },
+      _tenthQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.tenthQuestion.slider,
+      },
+      _eleventhQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.anyQuestion.slider,
+      },
+      _twelfthQuestion: {
+        type: "nameProduct",
+        locator: Locators_HairConsultation.nameInput,
+      },
+      _thirteenthQuestion: {
+        type: "slider",
+        locator: Locators_HairConsultation.anyQuestion.slider,
+      },
+      _submitButton: {
+        type: "submit",
+        locator: Locators_HairConsultation.submitButton,
+      },
+    };
+  }
+
+  initHairConsultation() {
+    cy.get(this.getStartedButton).click();
+  }
+
+  fullFillForm(options) {
+    Object.values(this._questions).forEach((question, index) => {
+      if (question.type == "slider") {
+        if (question.locator == Locators_HairConsultation.fifthQuestion) {
+          Object.values(Locators_HairConsultation.fifthQuestion).forEach(
+            (element) => {
+              this._chooseAnswerOfSlider(
+                true,
+                element.slider,
+                options[index],
+                null
+              );
+            }
+          );
+          cy.get(this.nextButton).click();
+        } else {
+          this._chooseAnswerOfSlider(true, question.locator, options[index]);
+        }
+      } else if (question.type == "option") {
+        this._chooseAnswerOfOption(true, question.locator, options[index]);
+
+      } else if (question.type == "nameProduct") {
+        cy.get(question.locator).type(this.userDto.firstName);
+        cy.get(this.nextButton).click();
+
+      } else if (question.type == "submit") {
+        this._submitForm();
+      }
+    });
   }
 
   fullFillRandomForm() {
-    // 1° First Question: WHAT IS MY NATURAL HAIR TYPE?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.anyQuestion.slider
-    );
+    Object.values(this._questions).forEach((question) => {
+      if (question.type == "slider") {
+        if (question.locator == Locators_HairConsultation.fifthQuestion) {
+          Object.values(Locators_HairConsultation.fifthQuestion).forEach(
+            (element) => {
+              this._chooseAnswerOfSlider(true, element.slider, undefined, null);
+            }
+          );
+          cy.get(this.nextButton).click();
+        } else {
+          this._chooseAnswerOfSlider(true, question.locator);
+  
+        }
+      } else if (question.type == "option") {
+        this._chooseAnswerOfOption(true, question.locator);
 
-    // 2° Second Question: HOW LONG IS MY HAIR?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.anyQuestion.slider
-    );
+      } else if (question.type == "nameProduct") {
+        cy.get(question.locator).type(this.userDto.firstName);
+        cy.get(this.nextButton).click();
 
-    // 3° Third Question: HOW DENSE IS MY HAIR?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.anyQuestion.slider
-    );
-
-    // 4° Fourth Question: HOW OILY IS MY HAIR?
-    this._chooseAnswerOfOption(true, Locators_HairConsultation.fourthQuestion);
-
-    // 5° Fifth Question: HOW DAMAGED IS MY HAIR?
-    Object.values(Locators_HairConsultation.fifthQuestion).forEach(
-      (element) => {
-        this._chooseAnswerOfSlider(true, element.slider, undefined, null);
+      } else if (question.type == "submit") {
+        this._submitForm();
       }
-    );
-    cy.get(Locators_HairConsultation.nextButton).click();
+    });
+  }
 
-    // 6° Sixth Question: WHAT ARE MY TOP HAIR GOALS?
-    this._chooseAnswerOfOption(true, Locators_HairConsultation.sixthQuestion);
-
-    // 7° Seventh Question: HOW OFTEN DO I WASH MY HAIR?
-    this._chooseAnswerOfOption(true, Locators_HairConsultation.seventhQuestion);
-
-    // 8° Eighth Question: HOW OFTEN DO I DEEP CONDITION MY HAIR?
-    this._chooseAnswerOfOption(true, Locators_HairConsultation.eighthQuestion);
-
-    // 9° Ninth Question: AM I CURRENTLY WEARING ANY OF THE FOLLOWING STYLES?
-    this._chooseAnswerOfOption(true, Locators_HairConsultation.ninthQuestion);
-
-    // 10° Tenth Question: HOW IMPORTANT IS EACH OF THESE TO ME WHEN I STYLE MY HAIR?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.tenthQuestion.slider
-    );
-
-    // 11° Eleventh Question: WHAT COLOR WOULD I LIKE MY PRODUCT TO BE?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.anyQuestion.slider
-    );
-
-    // 12° Twelfth Question: WHO IS THIS PRODUCT FOR?
-    cy.get(Locators_HairConsultation.nameInput).type(this.firstName);
-    cy.get(Locators_HairConsultation.nextButton).click();
-
-    // 13° Thirteenth Question: WHAT SCENT WOULD I LIKE MY PRODUCT TO HAVE?
-    this._chooseAnswerOfSlider(
-      true,
-      Locators_HairConsultation.anyQuestion.slider
-    );
-
-    // Submit Hair Consultation
-    cy.get(Locators_HairConsultation.submitButton).click();
+  _submitForm() {
+    cy.get(this.submitButton).click();
 
     if (!localStorage.getItem("user")) {
-        this._fillSeeResultsModal();
+      this._fillSeeResultsModal();
     }
   }
 
@@ -86,23 +168,19 @@ class PO_HairConsultation {
     random = false,
     slider = Locators_HairConsultation.anyQuestion.slider,
     value = 0,
-    navigate = Locators_HairConsultation.nextButton
+    navigate = this.nextButton
   ) {
     // Gets an element, And the Promise Return is Needed to get the total size of the slider in the current question
     cy.get(slider).then(($element) => {
       const objectSize = $element.attr("max");
 
-      if (!random) {
-        cy.get(slider).invoke("val", value).trigger("change");
-      } else {
-        value = Math.round(Math.random() * objectSize);
-        cy.get(slider)
-          .invoke("val", value)
-          .trigger("change");
-      }
+      value = random ? Math.floor(Math.random() * objectSize) : value;
+      cy.get(slider).invoke("val", value).trigger("change");
     });
 
-    cy.log(`[Hair Consultation] ${Locators_HairConsultation.currentQuestion.title} | Value: ${value}}`)
+    cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
+      cy.log(`[Hair Consultation] ${$element.text()} | Value: ${value + 1}`);
+    });
 
     if (!navigate) return;
 
@@ -112,39 +190,36 @@ class PO_HairConsultation {
   _chooseAnswerOfOption(
     random = false,
     object,
-    option,
-    navigate = Locators_HairConsultation.nextButton
+    option = 0,
+    navigate = this.nextButton
   ) {
-    if (!random) {
-      cy.get(this._getSpecificElement(object, option)).click();
-    } else {
-      option = this._getRandomElement(object);
-      cy.get(option).click();
-    }
+    option = random ? this._getRandomElement(object) : option;
 
-    cy.log(`[Hair Consultation] ${Locators_HairConsultation.currentQuestion.title} | Option: ${option}}`);
+    cy.get(Object.values(object)[option]).click();
+
+    cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
+      cy.log(`[Hair Consultation] ${$element.text()} | Option: ${option + 1}`);
+    });   
     
     cy.get(navigate).click();
   }
 
   _getRandomElement(object) {
-    const size = Object.keys(object).length;
+    const size = Object.values(object).length;
     const random = Math.floor(Math.random() * size);
-    const randomKey = Object.keys(object)[random];
-    return object[randomKey];
-  }
 
-  _getSpecificElement(object, key) {
-    return object[key];
+    return random;
   }
 
   _fillSeeResultsModal() {
     cy.log("[Hair Consultation] Filling See Results Modal");
-    cy.log(`[Hair Consultation] User: ${this.firstName} | ${this.lastName} | ${this.email}`);
-    cy.get(Locators_SeeResults.firstName).type(this.firstName);
-    cy.get(Locators_SeeResults.lastName).type(this.lastName);
-    cy.get(Locators_SeeResults.email).type(this.email);
-    cy.get(Locators_SeeResults.getResultsButton).click();
+    cy.log(
+      `[Hair Consultation] User: ${this.userDto.firstName} | ${this.userDto.lastName} | ${this.userDto.email}`
+    );
+    cy.get(this.firstNameInput).type(this.userDto.firstName);
+    cy.get(this.lastNameInput).type(this.userDto.lastName);
+    cy.get(this.emailInput).type(this.userDto.email);
+    cy.get(this.getResultsButton).click();
   }
 }
 

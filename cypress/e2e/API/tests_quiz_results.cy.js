@@ -14,9 +14,8 @@ describe("ST04: Teste", () => {
 
   it("CT01: responder todas perguntas ", () => {
     cy.visit(Routes.hairConsultation);
-    cy.get(Locators_HairConsultation.getStarted).click();
+    PageObjects_HairConsultation.initHairConsultation();
     PageObjects_HairConsultation.fullFillRandomForm();
-
   });
 
   it.skip("CT02:", () => {
