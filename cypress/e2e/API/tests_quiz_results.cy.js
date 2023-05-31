@@ -11,12 +11,6 @@ describe("ST04: Teste", () => {
     cy.clearAllSessionStorage();
   });
 
-  it("CT01: responder todas perguntas ", () => {
-    cy.visit(Routes.hairConsultation);
-    PageObjects_HairConsultation.initHairConsultation();
-    PageObjects_HairConsultation.fullFillRandomForm();
-  });
-
   it.skip("CT02:", () => {
     const answers = {
       userId: 300,

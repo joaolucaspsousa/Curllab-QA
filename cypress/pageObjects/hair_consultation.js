@@ -115,7 +115,15 @@ class PO_HairConsultation {
           this._chooseAnswerOfSlider(question.locator, answers[questionIndex]);
         }
       } else if (question.type == "option") {
-        this._chooseAnswerOfOption(question.locator, answers[questionIndex]);
+        if (question.locator == Locators_HairConsultation.sixthQuestion) {
+          answers[questionIndex].forEach((element) => {
+            cy.log(answers[questionIndex])
+            this._chooseAnswerOfOption(question.locator, element, null);
+          });
+          cy.get(this.nextButton).click();
+        } else {
+          this._chooseAnswerOfOption(question.locator, answers[questionIndex]);
+        }
       } else if (question.type == "nameProduct") {
         cy.get(question.locator).type(this.userDto.firstName);
         cy.get(this.nextButton).click();
@@ -153,6 +161,8 @@ class PO_HairConsultation {
     cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
       cy.log(`[Hair Consultation] ${$element.text()} | Option: ${option + 1}`);
     });
+
+    if (!navigate) return;
 
     cy.get(navigate).click();
   }

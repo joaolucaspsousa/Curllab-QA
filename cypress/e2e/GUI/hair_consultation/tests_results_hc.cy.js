@@ -32,7 +32,10 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.fifthQuestion.shine.MEDIUM,
           Fix_HairConsultation.fifthQuestion.splitEnds.HIGH,
         ],
-        Fix_HairConsultation.sixthQuestion.UNTANGLING,
+        [
+          Fix_HairConsultation.sixthQuestion.UNTANGLING,
+          Fix_HairConsultation.sixthQuestion.LENGTHEN,
+        ],
         Fix_HairConsultation.seventhQuestion.SECOND,
         Fix_HairConsultation.eightQuestion.SEVENTH,
         Fix_HairConsultation.ninthQuestion.PROTECTIVE_STYLED,
@@ -60,7 +63,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.fifthQuestion.shine.VERY_HIGH,
           Fix_HairConsultation.fifthQuestion.splitEnds.VERY_HIGH,
         ],
-        Fix_HairConsultation.sixthQuestion.LENGTHEN,
+        [Fix_HairConsultation.sixthQuestion.LENGTHEN],
         Fix_HairConsultation.seventhQuestion.FOURTH,
         Fix_HairConsultation.eightQuestion.FIFTH,
         Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -88,7 +91,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.fifthQuestion.shine.VERY_HIGH,
           Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
         ],
-        Fix_HairConsultation.sixthQuestion.ANTI_BREAKAGE,
+        [Fix_HairConsultation.sixthQuestion.ANTI_BREAKAGE],
         Fix_HairConsultation.seventhQuestion.FIRST,
         Fix_HairConsultation.eightQuestion.THIRD,
         Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -116,7 +119,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.fifthQuestion.shine.VERY_HIGH,
           Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
         ],
-        Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE,
+        [Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE],
         Fix_HairConsultation.seventhQuestion.SEVENTH,
         Fix_HairConsultation.eightQuestion.THIRD,
         Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -148,7 +151,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.MEDIUM,
             Fix_HairConsultation.fifthQuestion.splitEnds.HIGH,
           ],
-          Fix_HairConsultation.sixthQuestion.UNTANGLING,
+          [Fix_HairConsultation.sixthQuestion.UNTANGLING],
           Fix_HairConsultation.seventhQuestion.SECOND,
           Fix_HairConsultation.eightQuestion.SEVENTH,
           Fix_HairConsultation.ninthQuestion.PROTECTIVE_STYLED,
@@ -157,9 +160,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.A_L,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -178,7 +179,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_HIGH,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.ANTI_BREAKAGE,
+          [Fix_HairConsultation.sixthQuestion.ANTI_BREAKAGE],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -187,9 +188,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.M_K,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -208,7 +207,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE,
+          [Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -217,9 +216,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.A_L,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -238,7 +235,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE,
+          [Fix_HairConsultation.sixthQuestion.ANTI_SHRINKAGE],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -247,9 +244,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.M_K,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -268,7 +263,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.SOOTHE_SCALP,
+          [Fix_HairConsultation.sixthQuestion.SOOTHE_SCALP],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -277,9 +272,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.S_C,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -298,7 +291,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.MEDIUM,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.VOLUMIZE,
+          [Fix_HairConsultation.sixthQuestion.VOLUMIZE],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -307,9 +300,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.M_K,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -328,7 +319,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.HUMIDITY_BLOCKAGE,
+          [Fix_HairConsultation.sixthQuestion.HUMIDITY_BLOCKAGE],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -337,9 +328,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.A_L,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -358,7 +347,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.DEEP_CONDITION,
+          [Fix_HairConsultation.sixthQuestion.DEEP_CONDITION],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -367,9 +356,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.P_V,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -388,7 +375,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
             Fix_HairConsultation.fifthQuestion.shine.VERY_LOW,
             Fix_HairConsultation.fifthQuestion.splitEnds.VERY_LOW,
           ],
-          Fix_HairConsultation.sixthQuestion.DEEP_CONDITION,
+          [Fix_HairConsultation.sixthQuestion.DEEP_CONDITION],
           Fix_HairConsultation.seventhQuestion.FIRST,
           Fix_HairConsultation.eightQuestion.THIRD,
           Fix_HairConsultation.ninthQuestion.NATURAL,
@@ -397,9 +384,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
           Fix_HairConsultation.thirteenthQuestion.S_C,
         ];
 
-        hairConsultationDto.setAnswersHairConsultation(
-          hairConsultationAnswers
-        );
+        hairConsultationDto.setAnswersHairConsultation(hairConsultationAnswers);
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
@@ -416,7 +401,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
         PageObjects_HairConsultation.fillHairConsultation(
           hairConsultationDto.answers
         );
-        //PageObjects_HairConsultation.submitHairConsultation();
+        PageObjects_HairConsultation.submitHairConsultation();
       });
     }
   );

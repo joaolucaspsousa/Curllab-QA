@@ -4,7 +4,7 @@ class userDto {
   constructor() {
     this.firstName = faker.name.firstName();
     this.lastName = faker.name.lastName();
-    this.email = faker.internet.email();
+    this.email = "automation@mailinator.com"
     this.password = faker.internet.password();
     this.birthday = faker.date.past();
   }
