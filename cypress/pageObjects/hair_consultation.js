@@ -98,13 +98,12 @@ class PO_HairConsultation {
     cy.get(this.getStartedButton).click();
   }
 
-  fillHairConsultation(options) {
-    Object.values(this._questions).forEach((question, index) => {
+  fillHairConsultation(answers) {
+    Object.values(this._questions).forEach((question, questionIndex) => {
       if (question.type == "slider") {
         if (question.locator == Locators_HairConsultation.fifthQuestion) {
-          Object.values(options[index]).forEach((element, index) => {
+          answers[questionIndex].forEach((element, index) => {
             this._chooseAnswerOfSlider(
-              false,
               Object.values(Locators_HairConsultation.fifthQuestion)[index]
                 .slider,
               element,
@@ -113,32 +112,10 @@ class PO_HairConsultation {
           });
           cy.get(this.nextButton).click();
         } else {
-          this._chooseAnswerOfSlider(false, question.locator, options[index]);
+          this._chooseAnswerOfSlider(question.locator, answers[questionIndex]);
         }
       } else if (question.type == "option") {
-        this._chooseAnswerOfOption(false, question.locator, options[index]);
-      } else if (question.type == "nameProduct") {
-        cy.get(question.locator).type(this.userDto.firstName);
-        cy.get(this.nextButton).click();
-      }
-    });
-  }
-
-  fillRandomHairConsultation() {
-    Object.values(this._questions).forEach((question) => {
-      if (question.type == "slider") {
-        if (question.locator == Locators_HairConsultation.fifthQuestion) {
-          Object.values(Locators_HairConsultation.fifthQuestion).forEach(
-            (element) => {
-              this._chooseAnswerOfSlider(true, element.slider, undefined, null);
-            }
-          );
-          cy.get(this.nextButton).click();
-        } else {
-          this._chooseAnswerOfSlider(true, question.locator);
-        }
-      } else if (question.type == "option") {
-        this._chooseAnswerOfOption(true, question.locator);
+        this._chooseAnswerOfOption(question.locator, answers[questionIndex]);
       } else if (question.type == "nameProduct") {
         cy.get(question.locator).type(this.userDto.firstName);
         cy.get(this.nextButton).click();
@@ -155,18 +132,11 @@ class PO_HairConsultation {
   }
 
   _chooseAnswerOfSlider(
-    random = false,
     slider = Locators_HairConsultation.anyQuestion.slider,
     value = 0,
     navigate = this.nextButton
   ) {
-    // Gets an element, And the Promise Return is Needed to get the total size of the slider in the current question
-    cy.get(slider).then(($element) => {
-      const objectSize = $element.attr("max");
-
-      value = random ? Math.floor(Math.random() * objectSize) : value;
-      cy.get(slider).invoke("val", value).trigger("change");
-    });
+    cy.get(slider).invoke("val", value).trigger("change");
 
     cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
       cy.log(`[Hair Consultation] ${$element.text()} | Value: ${value + 1}`);
@@ -177,14 +147,7 @@ class PO_HairConsultation {
     cy.get(navigate).click();
   }
 
-  _chooseAnswerOfOption(
-    random = false,
-    object,
-    option = 0,
-    navigate = this.nextButton
-  ) {
-    option = random ? this._getRandomElement(object) : option;
-
+  _chooseAnswerOfOption(object, option = 0, navigate = this.nextButton) {
     cy.get(Object.values(object)[option]).click();
 
     cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
