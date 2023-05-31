@@ -1,5 +1,5 @@
 import { Locators_HairConsultation } from "../locators/pages/lct_hair_consultation";
-import { DTO_User as DTO_User } from "../dto/user_dto";
+import { userDto as userDto } from "../dto/user_dto";
 import { Locators_SeeResults } from "../locators/components/lct_see_results";
 
 class PO_HairConsultation {
@@ -20,7 +20,7 @@ class PO_HairConsultation {
 
   constructor() {
     // Mass of Data
-    this.userDto = new DTO_User();
+    this.userDto = new userDto();
 
     this.firstNameInput = Locators_SeeResults.firstNameInput;
     this.lastNameInput = Locators_SeeResults.lastNameInput;
@@ -98,38 +98,33 @@ class PO_HairConsultation {
     cy.get(this.getStartedButton).click();
   }
 
-  fullFillForm(options) {
+  fillHairConsultation(options) {
     Object.values(this._questions).forEach((question, index) => {
       if (question.type == "slider") {
         if (question.locator == Locators_HairConsultation.fifthQuestion) {
-          Object.values(Locators_HairConsultation.fifthQuestion).forEach(
-            (element) => {
-              this._chooseAnswerOfSlider(
-                true,
-                element.slider,
-                options[index],
-                null
-              );
-            }
-          );
+          Object.values(options[index]).forEach((element, index) => {
+            this._chooseAnswerOfSlider(
+              false,
+              Object.values(Locators_HairConsultation.fifthQuestion)[index]
+                .slider,
+              element,
+              null
+            );
+          });
           cy.get(this.nextButton).click();
         } else {
-          this._chooseAnswerOfSlider(true, question.locator, options[index]);
+          this._chooseAnswerOfSlider(false, question.locator, options[index]);
         }
       } else if (question.type == "option") {
-        this._chooseAnswerOfOption(true, question.locator, options[index]);
-
+        this._chooseAnswerOfOption(false, question.locator, options[index]);
       } else if (question.type == "nameProduct") {
         cy.get(question.locator).type(this.userDto.firstName);
         cy.get(this.nextButton).click();
-
-      } else if (question.type == "submit") {
-        this._submitForm();
       }
     });
   }
 
-  fullFillRandomForm() {
+  fillRandomHairConsultation() {
     Object.values(this._questions).forEach((question) => {
       if (question.type == "slider") {
         if (question.locator == Locators_HairConsultation.fifthQuestion) {
@@ -141,22 +136,17 @@ class PO_HairConsultation {
           cy.get(this.nextButton).click();
         } else {
           this._chooseAnswerOfSlider(true, question.locator);
-  
         }
       } else if (question.type == "option") {
         this._chooseAnswerOfOption(true, question.locator);
-
       } else if (question.type == "nameProduct") {
         cy.get(question.locator).type(this.userDto.firstName);
         cy.get(this.nextButton).click();
-
-      } else if (question.type == "submit") {
-        this._submitForm();
       }
     });
   }
 
-  _submitForm() {
+  submitHairConsultation() {
     cy.get(this.submitButton).click();
 
     if (!localStorage.getItem("user")) {
@@ -199,8 +189,8 @@ class PO_HairConsultation {
 
     cy.get(Locators_HairConsultation.currentQuestion.title).then(($element) => {
       cy.log(`[Hair Consultation] ${$element.text()} | Option: ${option + 1}`);
-    });   
-    
+    });
+
     cy.get(navigate).click();
   }
 

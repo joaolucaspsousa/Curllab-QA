@@ -20,10 +20,10 @@
         "HIGH": 3
     },
     "fourthQuestion": {
-        "DRY": 1,
-        "NORMAL": 2,
-        "OILY_ROOTS": 3,
-        "OILY": 4
+        "DRY": 0,
+        "NORMAL": 1,
+        "OILY_ROOTS": 2,
+        "OILY": 3
     },
     "fifthQuestion": {
         "hairLoss": {
@@ -56,45 +56,45 @@
         }
     },
     "sixthQuestion": {
-        "UNTANGLING": 1,
-        "LENGTHEN": 2,
-        "ANTI_BREAKAGE": 3,
-        "ANTI_SHRINKAGE": 4,
-        "DEEP_CONDITION": 5,
-        "SHINE": 6,
-        "THERMAL_PROTECTION": 7,
-        "SOOTHE_SCALP": 8,
-        "HUMIDITY_BLOCKAGE": 9,
-        "CURL_DEFINITION": 10,
-        "VOLUMIZE": 11,
-        "COLOR_PROTECTION": 12
+        "UNTANGLING": 0,
+        "LENGTHEN": 1,
+        "ANTI_BREAKAGE": 2,
+        "ANTI_SHRINKAGE": 3,
+        "DEEP_CONDITION": 4,
+        "SHINE": 5,
+        "THERMAL_PROTECTION": 6,
+        "SOOTHE_SCALP": 7,
+        "HUMIDITY_BLOCKAGE": 8,
+        "CURL_DEFINITION": 9,
+        "VOLUMIZE": 10,
+        "COLOR_PROTECTION": 11
     },
     "seventhQuestion": {
-        "FIRST": 1,
-        "SECOND": 2,
-        "THIRD": 3,
-        "FOURTH": 4,
-        "FIFTH": 5,
-        "SIXTH": 6,
-        "SEVENTH": 7
+        "FIRST": 0,
+        "SECOND": 1,
+        "THIRD": 2,
+        "FOURTH": 3,
+        "FIFTH": 4,
+        "SIXTH": 5,
+        "SEVENTH": 6
     },
     "eightQuestion": {
-        "FIRST": 1,
-        "SECOND": 2,
-        "THIRD": 3,
-        "FOURTH": 4,
-        "FIFTH": 5,
-        "SIXTH": 6,
-        "SEVENTH": 7
+        "FIRST": 0,
+        "SECOND": 1,
+        "THIRD": 2,
+        "FOURTH": 3,
+        "FIFTH": 4,
+        "SIXTH": 5,
+        "SEVENTH": 6
     },
     "ninthQuestion": {
-        "NATURAL": 1,
-        "RELAXED": 2,
-        "BLEACHED": 3,
-        "PROTECTIVE_STYLED": 4,
-        "VERY_SHORT": 5,
-        "SILK_PRESSED": 6,
-        "TRANSITIONING": 7
+        "NATURAL": 0,
+        "RELAXED": 1,
+        "BLEACHED": 2,
+        "PROTECTIVE_STYLED": 3,
+        "VERY_SHORT": 4,
+        "SILK_PRESSED": 5,
+        "TRANSITIONING": 6
     },
     "tenthQuestion": {
         "CURL_DEFINITION": 1,
@@ -109,10 +109,10 @@
         "CL_PEACH_PASSION": 4
     },
     "thirteenthQuestion": {
-        "A&L": 1,
-        "P&V": 2,
-        "M&K": 3,
-        "S&C": 4,
-        "P&M": 5
+        "A_L": 1,
+        "P_V": 2,
+        "M_K": 3,
+        "S_C": 4,
+        "P_M": 5
     }
 }

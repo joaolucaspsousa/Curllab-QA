@@ -1,6 +1,5 @@
 import { PO_QuizResults } from "../../pageObjects/quiz_results";
 import { Routes } from "../../routes/routes";
-import { Locators_HairConsultation } from "../../locators/pages/lct_hair_consultation";
 import { PO_HairConsultation } from "../../pageObjects/hair_consultation";
 
 describe("ST04: Teste", () => {

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-class DTO_User {
+class userDto {
   constructor() {
     this.firstName = faker.name.firstName();
     this.lastName = faker.name.lastName();
@@ -48,4 +48,4 @@ class DTO_User {
   }
 }
 
-export default { DTO_User };
+export default { userDto };
