@@ -1,0 +1,118 @@
+{
+    "firstQuestion": {
+        "WAVY": 1,
+        "WAVY_CURL_MIX": 2,
+        "CURLY": 3,
+        "CURLY_COILY_MIX": 4,
+        "COILY": 5,
+        "COILY_KINKY_MIX": 6,
+        "KINKY": 7
+    },
+    "secondQuestion": {
+        "SHORT": 1,
+        "MEDIUM": 2,
+        "MEDIUM_LONG": 3,
+        "LONG": 4
+    },
+    "thirdQuestion": {
+        "LOW": 1,
+        "MEDIUM": 2,
+        "HIGH": 3
+    },
+    "fourthQuestion": {
+        "DRY": 1,
+        "NORMAL": 2,
+        "OILY_ROOTS": 3,
+        "OILY": 4
+    },
+    "fifthQuestion": {
+        "hairLoss": {
+            "VERY_LOW": 1,
+            "LOW": 2,
+            "MEDIUM": 3,
+            "HIGH": 4,
+            "VERY_HIGH": 5
+        },
+        "breakage": {
+            "VERY_LOW": 1,
+            "LOW": 2,
+            "MEDIUM": 3,
+            "HIGH": 4,
+            "VERY_HIGH": 5
+        },
+        "shine": {
+            "VERY_LOW": 1,
+            "LOW": 2,
+            "MEDIUM": 3,
+            "HIGH": 4,
+            "VERY_HIGH": 5
+        },
+        "splitEnds": {
+            "VERY_LOW": 1,
+            "LOW": 2,
+            "MEDIUM": 3,
+            "HIGH": 4,
+            "VERY_HIGH": 5
+        }
+    },
+    "sixthQuestion": {
+        "UNTANGLING": 1,
+        "LENGTHEN": 2,
+        "ANTI_BREAKAGE": 3,
+        "ANTI_SHRINKAGE": 4,
+        "DEEP_CONDITION": 5,
+        "SHINE": 6,
+        "THERMAL_PROTECTION": 7,
+        "SOOTHE_SCALP": 8,
+        "HUMIDITY_BLOCKAGE": 9,
+        "CURL_DEFINITION": 10,
+        "VOLUMIZE": 11,
+        "COLOR_PROTECTION": 12
+    },
+    "seventhQuestion": {
+        "FIRST": 1,
+        "SECOND": 2,
+        "THIRD": 3,
+        "FOURTH": 4,
+        "FIFTH": 5,
+        "SIXTH": 6,
+        "SEVENTH": 7
+    },
+    "eightQuestion": {
+        "FIRST": 1,
+        "SECOND": 2,
+        "THIRD": 3,
+        "FOURTH": 4,
+        "FIFTH": 5,
+        "SIXTH": 6,
+        "SEVENTH": 7
+    },
+    "ninthQuestion": {
+        "NATURAL": 1,
+        "RELAXED": 2,
+        "BLEACHED": 3,
+        "PROTECTIVE_STYLED": 4,
+        "VERY_SHORT": 5,
+        "SILK_PRESSED": 6,
+        "TRANSITIONING": 7
+    },
+    "tenthQuestion": {
+        "CURL_DEFINITION": 1,
+        "DEFINITION_VOLUME": 2,
+        "VOLUME_DEFINITION": 3,
+        "VOLUME": 4
+    },
+    "eleventhQuestion": {
+        "CL_BLUE": 1,
+        "CL_ROSE_GOLD": 2,
+        "CL_LILAC_DREAM": 3,
+        "CL_PEACH_PASSION": 4
+    },
+    "thirteenthQuestion": {
+        "A&L": 1,
+        "P&V": 2,
+        "M&K": 3,
+        "S&C": 4,
+        "P&M": 5
+    }
+}
