@@ -20,9 +20,7 @@ class PO_QuizResults {
       !boosters ||
       !stylingRecommendation
     ) {
-      cy.log(
-        "[Quiz Results] 400: An error occurred while trying to get the hair consultation results."
-      );
+      cy.fail("[Quiz Results] 400: An error occurred while trying to get the hair consultation results.");
       return null;
     }
 
@@ -130,7 +128,7 @@ class PO_QuizResults {
         break;
 
       default:
-        cy.log(
+        cy.fail(
           "[Quiz Results] 400: It was not possible to determine the concentration of the booster."
         );
         break;
@@ -196,7 +194,7 @@ class PO_QuizResults {
         break;
 
       default:
-        cy.log("[Quiz Results] 404: Style Format not found.");
+        cy.fail("[Quiz Results] 404: Style Format not found.");
         break;
     }
 
@@ -258,7 +256,7 @@ class PO_QuizResults {
     } else if ([4, 5].includes(level)) {
       level = "High Level";
     } else {
-      cy.log(
+      cy.fail(
         "[Quiz Results] 400: It was not possible to determine the level of damage."
       );
     }

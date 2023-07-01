@@ -35,62 +35,70 @@ class PO_HairConsultation {
 
     // Questions
     this._questions = {
-      _firstQuestion: {
+      firstQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.anyQuestion.slider,
       },
-      _secondQuestion: {
+      secondQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.anyQuestion.slider,
       },
-      _thirdQuestion: {
+      thirdQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.anyQuestion.slider,
       },
-      _fourthQuestion: {
+      fourthQuestion: {
         type: "option",
         locator: Locators_HairConsultation.fourthQuestion,
       },
-      _fifthQuestion: {
+      fifthQuestion1: {
         type: "slider",
-        locator: Locators_HairConsultation.fifthQuestion,
+        locator: Locators_HairConsultation.fifthQuestion.hairLoss.slider,
       },
-      _sixthQuestion: {
+      fifthQuestion2: {
+        type: "slider",
+        locator: Locators_HairConsultation.fifthQuestion.breakage.slider,
+      },
+      fifthQuestion3: {
+        type: "slider",
+        locator: Locators_HairConsultation.fifthQuestion.shine.slider,
+      },
+      fifthQuestion4: {
+        type: "slider",
+        locator: Locators_HairConsultation.fifthQuestion.splitEnds.slider,
+      },
+      sixthQuestion: {
         type: "option",
         locator: Locators_HairConsultation.sixthQuestion,
       },
-      _seventhQuestion: {
+      seventhQuestion: {
         type: "option",
         locator: Locators_HairConsultation.seventhQuestion,
       },
-      _eighthQuestion: {
+      eighthQuestion: {
         type: "option",
         locator: Locators_HairConsultation.eighthQuestion,
       },
-      _ninthQuestion: {
+      ninthQuestion: {
         type: "option",
         locator: Locators_HairConsultation.ninthQuestion,
       },
-      _tenthQuestion: {
+      tenthQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.tenthQuestion.slider,
       },
-      _eleventhQuestion: {
+      eleventhQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.anyQuestion.slider,
       },
-      _twelfthQuestion: {
+      twelfthQuestion: {
         type: "nameProduct",
         locator: Locators_HairConsultation.nameInput,
       },
-      _thirteenthQuestion: {
+      thirteenthQuestion: {
         type: "slider",
         locator: Locators_HairConsultation.anyQuestion.slider,
-      },
-      _submitButton: {
-        type: "submit",
-        locator: Locators_HairConsultation.submitButton,
-      },
+      }
     };
   }
 
@@ -99,44 +107,51 @@ class PO_HairConsultation {
   }
 
   fillHairConsultation(answers) {
+    const answersArray = Object.values(answers);
+
     Object.values(this._questions).forEach((question, questionIndex) => {
-      if (question.type == "slider") {
-        if (question.locator == Locators_HairConsultation.fifthQuestion) {
-          answers[questionIndex].forEach((element, index) => {
-            this._chooseAnswerOfSlider(
-              Object.values(Locators_HairConsultation.fifthQuestion)[index]
-                .slider,
-              element,
-              null
+      // If he is on question 5, he needs to fill in all the sliders before proceeding, so this.nextButton must be NULL
+      const navigate = [
+        this._questions.fifthQuestion1.locator,
+        this._questions.fifthQuestion2.locator,
+        this._questions.fifthQuestion3.locator,
+      ].includes(question.locator)
+        ? null
+        : this.nextButton;
+
+      switch (question.type) {
+        case "slider":
+          this._chooseAnswerOfSlider(
+            question.locator,
+            answersArray[questionIndex],
+            navigate
+          );
+          break;
+
+        case "option":
+          if (question.locator == Locators_HairConsultation.sixthQuestion) {
+            answersArray[questionIndex].forEach((element) => {
+              this._chooseAnswerOfOption(question.locator, element, null);
+            });
+            cy.get(this.nextButton).click();
+          } else {
+            this._chooseAnswerOfOption(
+              question.locator,
+              answersArray[questionIndex]
             );
-          });
+          }
+          break;
+
+        case "nameProduct":
+          cy.get(question.locator).type(answersArray[questionIndex]);
           cy.get(this.nextButton).click();
-        } else {
-          this._chooseAnswerOfSlider(question.locator, answers[questionIndex]);
-        }
-      } else if (question.type == "option") {
-        if (question.locator == Locators_HairConsultation.sixthQuestion) {
-          answers[questionIndex].forEach((element) => {
-            cy.log(answers[questionIndex])
-            this._chooseAnswerOfOption(question.locator, element, null);
-          });
-          cy.get(this.nextButton).click();
-        } else {
-          this._chooseAnswerOfOption(question.locator, answers[questionIndex]);
-        }
-      } else if (question.type == "nameProduct") {
-        cy.get(question.locator).type(this.userDto.firstName);
-        cy.get(this.nextButton).click();
+          break;
+
+        default:
+          cy.fail("[Hair Consultation] Question type not found")
+          break;
       }
     });
-  }
-
-  submitHairConsultation() {
-    cy.get(this.submitButton).click();
-
-    if (!localStorage.getItem("user")) {
-      this._fillSeeResultsModal();
-    }
   }
 
   _chooseAnswerOfSlider(
@@ -172,6 +187,14 @@ class PO_HairConsultation {
     const random = Math.floor(Math.random() * size);
 
     return random;
+  }
+
+  submitHairConsultation() {
+    cy.get(this.submitButton).click();
+
+    if (!localStorage.getItem("user")) {
+      this._fillSeeResultsModal();
+    }
   }
 
   _fillSeeResultsModal() {

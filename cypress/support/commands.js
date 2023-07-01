@@ -44,21 +44,23 @@ Cypress.Commands.add("expected", (element, assert, expected, boolean) => {
     switch (assert) {
       case "contain":
         expect($element).to.contain(expected);
-        return;
+        break;
 
       case "equal":
         expect($element).to.equal(expected);
-        return;
+        break;
 
       case "have.lengthOf":
         expect($element).to.have.value(expected);
-        return;
+        break;
 
       case "have.property":
         expect($element).to.have.property(expected, boolean);
+        break;
 
       case "not.have.property":
         expect($element).to.not.have.property(expected, boolean);
+        break;
 
       default:
         break;
