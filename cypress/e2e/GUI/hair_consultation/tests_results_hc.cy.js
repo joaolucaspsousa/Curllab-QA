@@ -384,7 +384,7 @@ describe("ST05: Tests that contemplate the main results Hair Consultation via GU
   context(
     "Context 3: Perform Hair Consultion with Random values and options",
     () => {
-      it.only("CT14: Coverage of the Random Results", () => {
+      it("CT14: Coverage of the Random Results", () => {
         hairConsultationDto.setRandomAnswersHairConsultation();
         cy.log(hairConsultationDto.answers);
         PageObjects_HairConsultation.fillHairConsultation(

@@ -1,11 +1,11 @@
 import { Routes } from "../../../routes/routes";
 import { PO_HairConsultation } from "../../../pageObjects/hair_consultation";
-import { AS_HairConsultation } from "./asserts_hair_consultation";
+//import { AS_HairConsultation } from "./asserts_hair_consultation";
 import { hairConsultationDto as hairConsultation } from "../../../dto/hair_consultation_dto";
 
 describe("ST06: Tests that contemplate the flows of the Hair Consultation via GUI (Graphical User Interface) / Analyze the possible flows to visualize the results of the Capillary Consultation, validating the personalized results based on the user's response", async () => {
   const PageObjects_HairConsultation = new PO_HairConsultation();
-  const Asserts_HairConsultation = new AS_HairConsultation();
+  //const Asserts_HairConsultation = new AS_HairConsultation();
   let hairConsultationDto = new hairConsultation();
 
   beforeEach(() => {
@@ -20,11 +20,6 @@ describe("ST06: Tests that contemplate the flows of the Hair Consultation via GU
         cy.clearAllLocalStorage();
         cy.clearAllSessionStorage();
         cy.clearCookies();
-      });
-
-      beforeEach(() => {
-        cy.visit(Routes.hairConsultation);
-        PageObjects_HairConsultation.initHairConsultation();
       });
 
       it("CT01: Generic Filled Questions", () => {
@@ -44,10 +39,6 @@ describe("ST06: Tests that contemplate the flows of the Hair Consultation via GU
         cy.login();
       });
 
-      beforeEach(() => {
-        cy.visit(Routes.hairConsultation);
-        PageObjects_HairConsultation.initHairConsultation();
-      });
 
       it("CT02: Generic Filled Questions", () => {
         hairConsultationDto.setRandomAnswersHairConsultation();
@@ -66,11 +57,6 @@ describe("ST06: Tests that contemplate the flows of the Hair Consultation via GU
         cy.clearAllLocalStorage();
         cy.clearAllSessionStorage();
         cy.clearCookies();
-      });
-
-      beforeEach(() => {
-        cy.visit(Routes.hairConsultation);
-        PageObjects_HairConsultation.initHairConsultation();
       });
 
       it("CT03: Generic Filled Questions", () => {

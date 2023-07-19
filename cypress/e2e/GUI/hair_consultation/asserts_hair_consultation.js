@@ -2,11 +2,9 @@ import { Routes } from "../../../routes/routes";
 
 const hairConsulationMessages = {};
 
-const Fix_CMSQuizResults =
-  await require("../../../fixtures/quiz_results/cms_quiz_results.json");
+const Fix_CMSQuizResults = await require("../../../fixtures/quiz_results/cms_quiz_results.json");
 
-const Fix_HairConsultation =
-    await require("../../../fixtures/hair_consultation/questions_hair_consultation.json");
+const Fix_HairConsultation = await require("../../../fixtures/hair_consultation/questions_hair_consultation.json");
 
 class AS_HairConsultation {
   constructor() {

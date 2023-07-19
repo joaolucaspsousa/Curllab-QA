@@ -6,6 +6,8 @@ module.exports = defineConfig({
         env: {
             hideCredentials: true,
             requestMode: true,
+            username: "joaosousa@tokenlab.com.br",
+            password: "Teste123*"
         },
         experimentalRunAllSpecs: true,
     },

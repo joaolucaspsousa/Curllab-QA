@@ -28,6 +28,8 @@ Cypress.Commands.add(
       validate,
     };
 
+    cy.log(`Logging in as ${user}` & `Password: ${password}`)
+
     if (cacheSession) {
       cy.session(user, login, options);
       return;
